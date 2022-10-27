@@ -33,9 +33,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnIngresar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
+            this.txtContrasennia = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnVerPass = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,33 +87,49 @@
             this.btnIngresar.TabIndex = 3;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = false;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
-            // textBox1
+            // txtNombreUsuario
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(146, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(258, 26);
-            this.textBox1.TabIndex = 4;
+            this.txtNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreUsuario.Location = new System.Drawing.Point(146, 24);
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.Size = new System.Drawing.Size(258, 26);
+            this.txtNombreUsuario.TabIndex = 4;
             // 
-            // textBox2
+            // txtContrasennia
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(146, 69);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(258, 26);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.txtContrasennia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContrasennia.Location = new System.Drawing.Point(146, 69);
+            this.txtContrasennia.Name = "txtContrasennia";
+            this.txtContrasennia.Size = new System.Drawing.Size(258, 26);
+            this.txtContrasennia.TabIndex = 5;
+            this.txtContrasennia.UseSystemPasswordChar = true;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HotelRiu.Properties.Resources.riuLogin;
-            this.pictureBox1.Location = new System.Drawing.Point(438, 24);
+            this.pictureBox1.Location = new System.Drawing.Point(454, 24);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(281, 172);
+            this.pictureBox1.Size = new System.Drawing.Size(265, 172);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnVerPass
+            // 
+            this.btnVerPass.BackColor = System.Drawing.Color.Gold;
+            this.btnVerPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerPass.ForeColor = System.Drawing.Color.Black;
+            this.btnVerPass.Location = new System.Drawing.Point(411, 70);
+            this.btnVerPass.Name = "btnVerPass";
+            this.btnVerPass.Size = new System.Drawing.Size(37, 26);
+            this.btnVerPass.TabIndex = 7;
+            this.btnVerPass.Text = "Ver";
+            this.btnVerPass.UseVisualStyleBackColor = false;
+            this.btnVerPass.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnVerPass_MouseDown);
+            this.btnVerPass.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnVerPass_MouseUp);
             // 
             // FrmLogin
             // 
@@ -120,9 +137,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(731, 208);
+            this.Controls.Add(this.btnVerPass);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtContrasennia);
+            this.Controls.Add(this.txtNombreUsuario);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.label2);
@@ -146,8 +164,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnIngresar;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNombreUsuario;
+        private System.Windows.Forms.TextBox txtContrasennia;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnVerPass;
     }
 }
