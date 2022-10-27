@@ -22,5 +22,23 @@ namespace HotelRiu.Formularios
             //cierra completamente la app
             Application.Exit();
         }
+
+        private void btnVerPass_MouseDown(object sender, MouseEventArgs e)
+        {
+            txtContrasennia.UseSystemPasswordChar = false;
+        }
+        private void btnVerPass_MouseUp(object sender, MouseEventArgs e)
+        {
+            txtContrasennia.UseSystemPasswordChar = true;
+        }
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            //TODO: se debe validar el ingreso del usuario
+            //si la validacion es correcta permitiria dejar ingresar al usuario al sistema principal 
+            Globales.MiformPrincipal.Show();
+            this.Hide();
+        }
+
+        
     }
 }
