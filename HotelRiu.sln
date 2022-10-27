@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelRiu", "HotelRiu\HotelRiu.csproj", "{1A76C4DE-C753-4296-A114-B10035250947}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{F15F1036-7E98-4480-BFEE-D150E21A7D60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A76C4DE-C753-4296-A114-B10035250947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A76C4DE-C753-4296-A114-B10035250947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A76C4DE-C753-4296-A114-B10035250947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A76C4DE-C753-4296-A114-B10035250947}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F15F1036-7E98-4480-BFEE-D150E21A7D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F15F1036-7E98-4480-BFEE-D150E21A7D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F15F1036-7E98-4480-BFEE-D150E21A7D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F15F1036-7E98-4480-BFEE-D150E21A7D60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {745C175E-9801-498B-8954-6270566A90DC}
+	EndGlobalSection
+EndGlobal
