@@ -16,5 +16,10 @@ namespace HotelRiu.Formularios
         {
             InitializeComponent();
         }
+
+        private void FrmUsuariosGestion_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
