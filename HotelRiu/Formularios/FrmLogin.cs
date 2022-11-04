@@ -35,10 +35,17 @@ namespace HotelRiu.Formularios
         {
             //TODO: se debe validar el ingreso del usuario
             //si la validacion es correcta permitiria dejar ingresar al usuario al sistema principal 
-            Globales.MiformPrincipal.Show();
+            FrmPrincipalMDI MiFormPrincipal = new FrmPrincipalMDI();
+            MiFormPrincipal.Show();
+           
+
+            //Globales.MiformPrincipal.Show();
             this.Hide();
         }
 
-        
+        private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
