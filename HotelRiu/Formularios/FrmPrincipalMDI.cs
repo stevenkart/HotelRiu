@@ -36,9 +36,63 @@ namespace HotelRiu.Formularios
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Globales.MiformPrincipal.Hide();
+            /*Globales.MiformPrincipal.Hide();
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.Show();
+            */
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.Show();
+            this.Hide();
+        }
+
+        private void ocupacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globales.MiFormMantOcupaciones = new FrmOcupacionesGestion();
+            Globales.MiFormMantOcupaciones.Show();
+        }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globales.MiFormMantEmpleados = new FrmEmpleadosGestion();
+            Globales.MiFormMantEmpleados.Show();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globales.MiFormMantClientes = new FrmClientesGestion();
+            Globales.MiFormMantClientes.Show();
+        }
+
+        private void hospedajesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globales.MiFormMantHospedajes= new FrmHospedajesGestion();
+            Globales.MiFormMantHospedajes.Show();
+        }
+
+        private void habitacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globales.MiFormMantHabitaciones = new FrmHabitaciones();
+            Globales.MiFormMantHabitaciones.Show();
+        }
+
+        private void paquetesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            Globales.MiFormMantPaquetes = new FrmPaquetesGestion();
+            Globales.MiFormMantPaquetes.Show();
+        }
+
+        private void metodosDePagoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globales.MiFormMantMetodoPago = new FrmMetodoPagoGestion();
+            Globales.MiFormMantMetodoPago.Show();
+        }
+
+        private void FrmPrincipalMDI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.Show();
+            this.Hide();
         }
     }
 }

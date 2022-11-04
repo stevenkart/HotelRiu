@@ -45,9 +45,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.txtPinRecuperacion = new System.Windows.Forms.TextBox();
+            this.txtContrasenia = new System.Windows.Forms.TextBox();
+            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -55,10 +58,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtIDUsuario = new System.Windows.Forms.TextBox();
-            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
-            this.txtContrasenia = new System.Windows.Forms.TextBox();
-            this.txtPinRecuperacion = new System.Windows.Forms.TextBox();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.cboxEmpleado = new System.Windows.Forms.ComboBox();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -67,7 +68,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.cboxEmpleado = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -77,9 +77,9 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.SuspendLayout();
@@ -278,19 +278,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(854, 343);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.tableLayoutPanel5);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel6.Location = new System.Drawing.Point(0, 367);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(10);
-            this.panel6.Size = new System.Drawing.Size(878, 94);
-            this.panel6.TabIndex = 5;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -330,6 +317,40 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(423, 337);
             this.tableLayoutPanel4.TabIndex = 1;
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCorreo.Location = new System.Drawing.Point(137, 264);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(283, 22);
+            this.txtCorreo.TabIndex = 10;
+            // 
+            // txtPinRecuperacion
+            // 
+            this.txtPinRecuperacion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPinRecuperacion.Location = new System.Drawing.Point(137, 236);
+            this.txtPinRecuperacion.Name = "txtPinRecuperacion";
+            this.txtPinRecuperacion.ReadOnly = true;
+            this.txtPinRecuperacion.Size = new System.Drawing.Size(283, 22);
+            this.txtPinRecuperacion.TabIndex = 9;
+            // 
+            // txtContrasenia
+            // 
+            this.txtContrasenia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtContrasenia.Location = new System.Drawing.Point(137, 203);
+            this.txtContrasenia.Name = "txtContrasenia";
+            this.txtContrasenia.Size = new System.Drawing.Size(283, 22);
+            this.txtContrasenia.TabIndex = 8;
+            this.txtContrasenia.UseSystemPasswordChar = true;
+            // 
+            // txtNombreUsuario
+            // 
+            this.txtNombreUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNombreUsuario.Location = new System.Drawing.Point(137, 136);
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.Size = new System.Drawing.Size(283, 22);
+            this.txtNombreUsuario.TabIndex = 7;
             // 
             // label6
             // 
@@ -400,39 +421,27 @@
             this.txtIDUsuario.Size = new System.Drawing.Size(283, 22);
             this.txtIDUsuario.TabIndex = 6;
             // 
-            // txtNombreUsuario
+            // cboxEmpleado
             // 
-            this.txtNombreUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNombreUsuario.Location = new System.Drawing.Point(137, 136);
-            this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(283, 22);
-            this.txtNombreUsuario.TabIndex = 7;
+            this.cboxEmpleado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboxEmpleado.FormattingEnabled = true;
+            this.cboxEmpleado.Location = new System.Drawing.Point(138, 305);
+            this.cboxEmpleado.Name = "cboxEmpleado";
+            this.cboxEmpleado.Size = new System.Drawing.Size(281, 24);
+            this.cboxEmpleado.TabIndex = 11;
             // 
-            // txtContrasenia
+            // panel6
             // 
-            this.txtContrasenia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContrasenia.Location = new System.Drawing.Point(137, 203);
-            this.txtContrasenia.Name = "txtContrasenia";
-            this.txtContrasenia.Size = new System.Drawing.Size(283, 22);
-            this.txtContrasenia.TabIndex = 8;
-            this.txtContrasenia.UseSystemPasswordChar = true;
-            // 
-            // txtPinRecuperacion
-            // 
-            this.txtPinRecuperacion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPinRecuperacion.Location = new System.Drawing.Point(137, 236);
-            this.txtPinRecuperacion.Name = "txtPinRecuperacion";
-            this.txtPinRecuperacion.ReadOnly = true;
-            this.txtPinRecuperacion.Size = new System.Drawing.Size(283, 22);
-            this.txtPinRecuperacion.TabIndex = 9;
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCorreo.Location = new System.Drawing.Point(137, 264);
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(283, 22);
-            this.txtCorreo.TabIndex = 10;
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.tableLayoutPanel5);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel6.Location = new System.Drawing.Point(0, 367);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(10);
+            this.panel6.Size = new System.Drawing.Size(878, 94);
+            this.panel6.TabIndex = 5;
             // 
             // tableLayoutPanel5
             // 
@@ -540,15 +549,6 @@
             this.panel7.Size = new System.Drawing.Size(878, 461);
             this.panel7.TabIndex = 6;
             // 
-            // cboxEmpleado
-            // 
-            this.cboxEmpleado.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cboxEmpleado.FormattingEnabled = true;
-            this.cboxEmpleado.Location = new System.Drawing.Point(138, 303);
-            this.cboxEmpleado.Name = "cboxEmpleado";
-            this.cboxEmpleado.Size = new System.Drawing.Size(281, 24);
-            this.cboxEmpleado.TabIndex = 11;
-            // 
             // FrmUsuariosGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -576,10 +576,10 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.panel6.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.panel7.ResumeLayout(false);
