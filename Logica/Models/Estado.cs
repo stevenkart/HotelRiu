@@ -12,7 +12,7 @@ namespace Logica.Models
 
         //Primero Escribimos las Propiedades Simples
         public int IDEstado { get; set; }
-        public string nombreEstado { get; set; }
+        public string NombreEstado { get; set; }
 
 
 

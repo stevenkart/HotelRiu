@@ -10,29 +10,46 @@ namespace Logica.Models
 {
     public class Usuario
     {
+        //atributos simples
         public int IDUsuario { get; set; }
-        public bool NombreUsuario { get; set; }
-        public float Contrasennia { get; set; }
-        public bool PinRecuperacion { get; set; }
+        public string NombreUsuario { get; set; }
+        public string Contrasenia { get; set; }
+        public int PinRecuperacion { get; set; }
 
+        //atributos compuestos
+        //heredados de otras clases
         public Empleado MiEmpleado { get; set; }
 
 
         public Usuario()
         {
             MiEmpleado = new Empleado();
-
-
         }
 
 
         //Ahora se escribe las funciones y metodos(operaciones)
         public bool Agregar()
         {
-            //TODO: ejecutar SP que contenga la instruccion
-            //INSERT correspondiente y retornar TRUE si 
-            // TODO sale bien
             bool R = false;
+
+            // conexion con el servidor de base datos
+            Conexion MiCnn = new Conexion();
+
+            // lista de atributos simples para el INSERT en la basedatos
+            MiCnn.ListaParametros.Add(new SqlParameter("@NombreUsuario", this.NombreUsuario));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Contrasenia", this.Contrasenia));
+
+            // lista de atributos compuestos heredados de otra clase
+            // para el INSERT en la basedatos
+            MiCnn.ListaParametros.Add(new SqlParameter("@IDEmpleado", this.MiEmpleado.IDEmpleado));
+
+            // si el procedimiento retorna y numero mayor a 0 el query u procedimiento se ejecuto perfectamente
+            int resultado  = MiCnn.EjecutarUpdateDeleteInsert("SPUsuarioAgregar");
+
+            if (resultado > 0)
+            {
+                R = true;
+            }
 
             return R;
 

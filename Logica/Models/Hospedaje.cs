@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace Logica.Models
 {
@@ -32,21 +33,41 @@ namespace Logica.Models
             MiHabitacion = new Habitacion();
             MiPaquete = new Paquete();
             MiCliente = new Cliente();
-
-
         }
 
 
         //Ahora se escribe las funciones y metodos(operaciones)
         public bool Agregar()
         {
-            //TODO: ejecutar SP que contenga la instruccion
-            //INSERT correspondiente y retornar TRUE si 
-            // TODO sale bien
             bool R = false;
 
-            return R;
+            // conexion con el servidor de base datos
+            Conexion MiCnn = new Conexion();
 
+            // lista de atributos simples para el INSERT en la basedatos
+            MiCnn.ListaParametros.Add(new SqlParameter("@Cant_Ninos", this.Cant_Ninos));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Cant_Adultos", this.Cant_Adultos));
+            MiCnn.ListaParametros.Add(new SqlParameter("@DiasHospedaje", this.DiasHospedaje));
+            MiCnn.ListaParametros.Add(new SqlParameter("@FechaEntrada", this.FechaEntrada));
+            MiCnn.ListaParametros.Add(new SqlParameter("@FechaSalida", this.FechaSalida));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Total", this.Total));
+
+            // lista de atributos compuestos heredados de otra clase
+            // para el INSERT en la basedatos
+            MiCnn.ListaParametros.Add(new SqlParameter("@IDEstado", this.MiEstado.IDEstado));
+            MiCnn.ListaParametros.Add(new SqlParameter("@IDHabitacion", this.MiHabitacion.IDHabitacion));
+            MiCnn.ListaParametros.Add(new SqlParameter("@IDPaquete", this.MiPaquete.IDPaquete));
+            MiCnn.ListaParametros.Add(new SqlParameter("@IDCliente", this.MiCliente.IDCliente));
+
+            // si el procedimiento retorna y numero mayor a 0 el query u procedimiento se ejecuto perfectamente
+            int resultado = MiCnn.EjecutarUpdateDeleteInsert("SPHospedajeAgregar");
+
+            if (resultado > 0)
+            {
+               R = true;
+            }
+
+            return R;
         }
         public bool Modificar()
         {
