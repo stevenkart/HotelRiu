@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HotelRiu
+namespace HotelRiu.Formularios
 {
-    public partial class Form1 : Form
+    public partial class FrmOcupacionesGestion : Form
     {
-        public Form1()
+        public FrmOcupacionesGestion()
         {
             InitializeComponent();
         }
