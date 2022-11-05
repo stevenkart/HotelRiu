@@ -46,17 +46,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Formularios\FrmClientesGestion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Formularios\FrmClientesGestion.Designer.cs">
+      <DependentUpon>FrmClientesGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmEmpleadosGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmEmpleadosGestion.Designer.cs">
+      <DependentUpon>FrmEmpleadosGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmHabitaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmHabitaciones.Designer.cs">
+      <DependentUpon>FrmHabitaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmHospedajesGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmHospedajesGestion.Designer.cs">
+      <DependentUpon>FrmHospedajesGestion.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmMetodoPagoGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmMetodoPagoGestion.Designer.cs">
+      <DependentUpon>FrmMetodoPagoGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmOcupacionesGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmOcupacionesGestion.Designer.cs">
+      <DependentUpon>FrmOcupacionesGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmPaquetesGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmPaquetesGestion.Designer.cs">
+      <DependentUpon>FrmPaquetesGestion.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FrmPrincipalMDI.cs">
       <SubType>Form</SubType>
@@ -73,8 +109,36 @@
     <Compile Include="Globales.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validaciones.cs" />
+    <EmbeddedResource Include="Formularios\FrmClientesGestion.resx">
+      <DependentUpon>FrmClientesGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmEmpleadosGestion.resx">
+      <DependentUpon>FrmEmpleadosGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmHabitaciones.resx">
+      <DependentUpon>FrmHabitaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmHospedajesGestion.resx">
+      <DependentUpon>FrmHospedajesGestion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmMetodoPagoGestion.resx">
+      <DependentUpon>FrmMetodoPagoGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmOcupacionesGestion.resx">
+      <DependentUpon>FrmOcupacionesGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmPaquetesGestion.resx">
+      <DependentUpon>FrmPaquetesGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmPrincipalMDI.resx">
+      <DependentUpon>FrmPrincipalMDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmUsuariosGestion.resx">
+      <DependentUpon>FrmUsuariosGestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -109,8 +173,13 @@
     <Folder Include="Reportes\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Imagenes\Clientes\Clientes.png" />
+    <Content Include="Imagenes\Empleados\empleados.png" />
+    <Content Include="Imagenes\Hospedaje\hospedaje.jpg" />
+    <Content Include="Imagenes\Ocupaciones\ocupaciones.jpg" />
     <Content Include="Imagenes\riuLogin.ico" />
     <Content Include="Imagenes\riuLogin.jpg" />
+    <Content Include="Imagenes\Usuario\perfil.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

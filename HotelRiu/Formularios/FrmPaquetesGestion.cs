@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace HotelRiu.Formularios
 {
-    public partial class FrmUsuariosGestion : Form
+    public partial class FrmPaquetesGestion : Form
     {
-        public FrmUsuariosGestion()
+        public FrmPaquetesGestion()
         {
             InitializeComponent();
-        }
-
-        private void FrmUsuariosGestion_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

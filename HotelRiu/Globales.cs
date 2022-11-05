@@ -20,5 +20,22 @@ namespace HotelRiu
 
         public static Formularios.FrmUsuariosGestion MiFormMantUsuarios = new Formularios.FrmUsuariosGestion();
 
+        public static Formularios.FrmOcupacionesGestion MiFormMantOcupaciones = new Formularios.FrmOcupacionesGestion();
+
+        public static Formularios.FrmEmpleadosGestion MiFormMantEmpleados = new Formularios.FrmEmpleadosGestion();
+
+        public static Formularios.FrmClientesGestion MiFormMantClientes = new Formularios.FrmClientesGestion();
+
+        public static Formularios.FrmHospedajesGestion MiFormMantHospedajes = new Formularios.FrmHospedajesGestion();
+
+        public static Formularios.FrmHabitaciones MiFormMantHabitaciones = new Formularios.FrmHabitaciones();
+
+        public static Formularios.FrmPaquetesGestion MiFormMantPaquetes = new Formularios.FrmPaquetesGestion();
+
+        public static Formularios.FrmMetodoPagoGestion MiFormMantMetodoPago = new Formularios.FrmMetodoPagoGestion();
+
+
+
+
     }
 }
