@@ -4,12 +4,13 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace Logica.Models
 {
     public class Cliente
     {
-
+        //atributos simples
         public int IDCliente { get; set; }
         public string Cedula { get; set; }
         public string Nombre { get; set; }
@@ -22,13 +23,30 @@ namespace Logica.Models
         //Ahora se escribe las funciones y metodos(operaciones)
         public bool Agregar()
         {
-            //TODO: ejecutar SP que contenga la instruccion
-            //INSERT correspondiente y retornar TRUE si 
-            // TODO sale bien
+            
             bool R = false;
 
-            return R;
+            // conexion con el servidor de base datos
+            Conexion MiCnn = new Conexion();
 
+            // lista de atributos simples para el INSERT en la basedatos
+            MiCnn.ListaParametros.Add(new SqlParameter("@Cedula", this.Cedula));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Apellidos", this.Apellidos));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Correo", this.Correo));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Telefono", this.Telefono));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Direccion", this.Direccion));
+
+            // si el procedimiento retorna y numero mayor a 0 el query u procedimiento se ejecuto perfectamente
+            int resultado = MiCnn.EjecutarUpdateDeleteInsert("SPClienteAgregar");
+
+            if (resultado > 0)
+            {
+                R = true;
+            }
+
+            return R;
+            
         }
         public bool Modificar()
         {
