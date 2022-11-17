@@ -19,6 +19,11 @@ namespace Logica.Models
         public string Telefono { get; set; }
         public string Direccion { get; set; }
 
+        //Constructor
+        public Cliente()
+        {
+            
+        }
 
         //Ahora se escribe las funciones y metodos(operaciones)
         public bool Agregar()
@@ -55,38 +60,163 @@ namespace Logica.Models
             // TODO sale bien
             bool R = false;
 
+            Conexion MiCnn = new Conexion();
+            //debemos pasar la lista parametros para el insert
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@Cedula", this.Cedula));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Apellidos", this.Apellidos));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Correo", this.Correo));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Telefono", this.Telefono));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Direccion", this.Direccion));
+           
+                      
+            //ID CLIENTE
+            MiCnn.ListaParametros.Add(new SqlParameter("@IDCliente", this.IDCliente));
+
+            //ahora se llama el SP 
+
+            int Resultado = MiCnn.EjecutarUpdateDeleteInsert("SPClienteModificar");
+
+            if (Resultado > 0)
+            {
+                R = true;
+
+
+            }
             return R;
 
         }
         public bool Eliminar()
         {
-            //TODO: ejecutar SP que contenga la instruccion
-            //DELETE -> UPDATE correspondiente y retornar TRUE si 
-            // TODO sale bien
-            // SE HACEN ELIMINACIONES LOGICAS, LO QUE HAREMOS SERA CAMBIAR EL VALOR DE CAMPO 
-            //ACTIVO A FALSE
+
             bool R = false;
 
+            Conexion MiCnn = new Conexion();
+            //debemos pasar la lista parametros para el DELETE
+
+            //ID CLIENTE
+            MiCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDCliente));
+
+            //ahora se llama el SP 
+
+            int Resultado = MiCnn.EjecutarUpdateDeleteInsert("SPClienteEliminar");
+
+            if (Resultado == 0)
+            {
+                R = true;
+
+
+            }
+            return R;
+        }
+        public Cliente ConsultarPorID()
+        {
+
+            //TODO: ejecutar SP que contenga la instruccion
+            //SELECT correspondiente y retornar del mismo tipo de la clase
+            // TODO sale bien entregue un select
+            Cliente R = new Cliente();
+
+
+            Conexion MyCnn = new Conexion();
+
+            MyCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDCliente));
+            DataTable dataCliente = new DataTable();
+            dataCliente = MyCnn.EjecutarSelect("SPClienteConsultarPorID");
+
+            //Una vez tewnemos un datatable con la data procedemos a llenar las propiedades del 
+            //objeto retorno
+
+            if (dataCliente != null && dataCliente.Rows.Count > 0)
+            {
+
+                DataRow Fila = dataCliente.Rows[0];
+
+                R.IDCliente = Convert.ToInt32(Fila["IDCliente"]);   
+                R.Cedula = Convert.ToString(Fila["Cedula"]);
+                R.Nombre = Convert.ToString(Fila["Nombre"]);
+                R.Apellidos = Convert.ToString(Fila["Apellidos"]);
+                R.Correo = Convert.ToString(Fila["Correo"]);
+                R.Telefono = Convert.ToString(Fila["Telefono"]);
+                R.Direccion = Convert.ToString(Fila["direccion"]);
+      
+
+
+            }
+
             return R;
 
         }
 
-        public DataTable ListarPorCedula(string Cedula)
+
+
+
+
+
+     
+        public bool ConsultarPorID(int pIDCliente)
         {
-            //TODO usar SP con parametros para ver Ocupaciones 
-            DataTable R = new DataTable();
+            //TODO: ejecutar SP que contenga la instruccion
+            //SELECT correspondiente y retornar del mismo tipo de la clase
+            // TODO sale bien entregue un select
+            bool R = false;
+
+
+            Conexion MyCnn = new Conexion();
+
+            MyCnn.ListaParametros.Add(new SqlParameter("@ID", pIDCliente));
+            DataTable dataCliente = new DataTable();
+            dataCliente = MyCnn.EjecutarSelect("SPClienteConsultarPorID");
+
+
+            if (dataCliente != null && dataCliente.Rows.Count > 0)
+            {
+                R = true;
+
+            }
 
             return R;
 
+        }
+        public bool ConsultarPorCedula()
+        {
+            //TODO: ejecutar SP que contenga la instruccion
+            //SELECT correspondiente y retornar TRUE si 
+            //todo listo****
 
 
+            bool R = false;
+
+            Conexion MiCnn = new Conexion();
+            //debemos pasar 1 parametro al SP DE CONSULTA
+            //en el sql parametro se adjunta el parametro de SP
+            MiCnn.ListaParametros.Add(new SqlParameter("@Cedula", this.Cedula));
+
+            //ahora se llama el SP 
+
+            DataTable Consulta = MiCnn.EjecutarSelect("SPClienteConsultarPorCedula");
+
+            if (Consulta != null && Consulta.Rows.Count > 0)
+            {
+                R = true;
+
+            }
+
+            return R;
 
         }
-
-        public DataTable Listar()
+       
+        public DataTable Listar(string FiltroBusqueda = "")
         {
-            //TODO usar SP con parametros para ver Ocupaciones 
             DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@FiltroBusqueda", FiltroBusqueda));
+
+            R = MiCnn.EjecutarSelect("SPClienteListar");
+
 
             return R;
 
