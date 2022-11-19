@@ -56,10 +56,28 @@ namespace Logica.Models
         }
         public bool Modificar()
         {
-            //TODO: ejecutar SP que contenga la instruccion
-            //UPDATE correspondiente y retornar TRUE si 
-            // TODO sale bien
+
             bool R = false;
+
+            // conexion con el servidor de base datos
+            Conexion MiCnn = new Conexion();
+
+            // lista de atributos simples para el INSERT en la basedatos
+            MiCnn.ListaParametros.Add(new SqlParameter("@NombreUsuario", this.NombreUsuario));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Contrasenia", this.Contrasenia));
+
+            // lista de atributos compuestos heredados de otra clase
+            // para el INSERT en la basedatos
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDUsuario));
+
+            // si el procedimiento retorna y numero mayor a 0 el query u procedimiento se ejecuto perfectamente
+            int resultado = MiCnn.EjecutarUpdateDeleteInsert("SPUsuarioModificar");
+
+            if (resultado > 0)
+            {
+                R = true;
+            }
 
             return R;
 
@@ -78,40 +96,43 @@ namespace Logica.Models
         }
 
 
-        public bool ConsultarPorNombreUsuario()
+        public Usuario ConsultarPorID()
         {
-            //TODO: ejecutar SP que contenga la instruccion
-            //SELECT correspondiente y retornar TRUE si 
-            // TODO listo ****
-
-
-            bool R = false;
+            Usuario R = new Usuario();
 
             Conexion MiCnn = new Conexion();
-            //debemos pasar 1 parametro al SP DE CONSULTA
-            //en el sql parametro se adjunta el parametro de SP
-            MiCnn.ListaParametros.Add(new SqlParameter("@NombreUsuario", this.NombreUsuario));
 
-            //ahora se llama el SP 
+            MiCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDUsuario));
 
-            DataTable Consulta = MiCnn.EjecutarSelect("SPUsuarioConsultarPorNombreUsuario");
+            DataTable DataOcupacion = new DataTable();
 
-            if (Consulta != null && Consulta.Rows.Count > 0)
+            DataOcupacion = MiCnn.EjecutarSelect("SPUsuarioConsultarPorID");
+
+            if (DataOcupacion != null && DataOcupacion.Rows.Count > 0)
             {
-                R = true;
+                DataRow Fila = DataOcupacion.Rows[0];
 
+                R.IDUsuario = Convert.ToInt32(Fila["IDUsuario"]);
+                R.NombreUsuario = Convert.ToString(Fila["NombreUsuario"]);
+                R.Contrasenia = Convert.ToString(Fila["Contrasenia"]);
+
+                R.MiEmpleado.IDEmpleado = Convert.ToInt32(Fila["IDEmpleado"]);
             }
 
             return R;
-
         }
 
 
-        //listar con el bool sin parametros
-        public DataTable ListarActivos()
+
+        public DataTable Listar(string FiltroBusqueda = "")
         {
-            //TODO usar SP con parametros para ver proveedores eliminados o activos
             DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@FiltroBusqueda", FiltroBusqueda));
+
+            R = MiCnn.EjecutarSelect("SPUsuarioListar");
 
             return R;
         }
