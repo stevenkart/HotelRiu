@@ -43,6 +43,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtCamas = new System.Windows.Forms.TextBox();
+            this.checkbJacuzzi = new System.Windows.Forms.CheckBox();
+            this.checkbMatrimonial = new System.Windows.Forms.CheckBox();
+            this.checkbAC = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.cBoxEstado = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -63,15 +68,11 @@
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkbJacuzzi = new System.Windows.Forms.CheckBox();
-            this.checkbMatrimonial = new System.Windows.Forms.CheckBox();
-            this.checkbAC = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.cBoxEstado = new System.Windows.Forms.ComboBox();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -81,7 +82,6 @@
             this.panel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel5
@@ -249,6 +249,62 @@
             this.txtCamas.Name = "txtCamas";
             this.txtCamas.Size = new System.Drawing.Size(257, 22);
             this.txtCamas.TabIndex = 17;
+            // 
+            // checkbJacuzzi
+            // 
+            this.checkbJacuzzi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkbJacuzzi.AutoSize = true;
+            this.checkbJacuzzi.Location = new System.Drawing.Point(124, 60);
+            this.checkbJacuzzi.Name = "checkbJacuzzi";
+            this.checkbJacuzzi.Size = new System.Drawing.Size(257, 20);
+            this.checkbJacuzzi.TabIndex = 21;
+            this.checkbJacuzzi.Text = "Si o No?";
+            this.checkbJacuzzi.UseVisualStyleBackColor = true;
+            // 
+            // checkbMatrimonial
+            // 
+            this.checkbMatrimonial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkbMatrimonial.AutoSize = true;
+            this.checkbMatrimonial.Location = new System.Drawing.Point(124, 154);
+            this.checkbMatrimonial.Name = "checkbMatrimonial";
+            this.checkbMatrimonial.Size = new System.Drawing.Size(257, 20);
+            this.checkbMatrimonial.TabIndex = 22;
+            this.checkbMatrimonial.Text = "Si o No?";
+            this.checkbMatrimonial.UseVisualStyleBackColor = true;
+            // 
+            // checkbAC
+            // 
+            this.checkbAC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkbAC.AutoSize = true;
+            this.checkbAC.Location = new System.Drawing.Point(124, 248);
+            this.checkbAC.Name = "checkbAC";
+            this.checkbAC.Size = new System.Drawing.Size(257, 20);
+            this.checkbAC.TabIndex = 23;
+            this.checkbAC.Text = "Si o No?";
+            this.checkbAC.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.cBoxEstado, 0, 1);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(124, 285);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(257, 45);
+            this.tableLayoutPanel6.TabIndex = 24;
+            // 
+            // cBoxEstado
+            // 
+            this.cBoxEstado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cBoxEstado.FormattingEnabled = true;
+            this.cBoxEstado.Location = new System.Drawing.Point(3, 12);
+            this.cBoxEstado.Name = "cBoxEstado";
+            this.cBoxEstado.Size = new System.Drawing.Size(251, 24);
+            this.cBoxEstado.TabIndex = 0;
             // 
             // panel4
             // 
@@ -500,62 +556,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mantenimiento de Habitaciones";
             // 
-            // checkbJacuzzi
-            // 
-            this.checkbJacuzzi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkbJacuzzi.AutoSize = true;
-            this.checkbJacuzzi.Location = new System.Drawing.Point(124, 60);
-            this.checkbJacuzzi.Name = "checkbJacuzzi";
-            this.checkbJacuzzi.Size = new System.Drawing.Size(257, 20);
-            this.checkbJacuzzi.TabIndex = 21;
-            this.checkbJacuzzi.Text = "Si o No?";
-            this.checkbJacuzzi.UseVisualStyleBackColor = true;
-            // 
-            // checkbMatrimonial
-            // 
-            this.checkbMatrimonial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkbMatrimonial.AutoSize = true;
-            this.checkbMatrimonial.Location = new System.Drawing.Point(124, 154);
-            this.checkbMatrimonial.Name = "checkbMatrimonial";
-            this.checkbMatrimonial.Size = new System.Drawing.Size(257, 20);
-            this.checkbMatrimonial.TabIndex = 22;
-            this.checkbMatrimonial.Text = "Si o No?";
-            this.checkbMatrimonial.UseVisualStyleBackColor = true;
-            // 
-            // checkbAC
-            // 
-            this.checkbAC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkbAC.AutoSize = true;
-            this.checkbAC.Location = new System.Drawing.Point(124, 248);
-            this.checkbAC.Name = "checkbAC";
-            this.checkbAC.Size = new System.Drawing.Size(257, 20);
-            this.checkbAC.TabIndex = 23;
-            this.checkbAC.Text = "Si o No?";
-            this.checkbAC.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Controls.Add(this.cBoxEstado, 0, 1);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(124, 285);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 2;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(257, 45);
-            this.tableLayoutPanel6.TabIndex = 24;
-            // 
-            // cBoxEstado
-            // 
-            this.cBoxEstado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cBoxEstado.FormattingEnabled = true;
-            this.cBoxEstado.Location = new System.Drawing.Point(3, 12);
-            this.cBoxEstado.Name = "cBoxEstado";
-            this.cBoxEstado.Size = new System.Drawing.Size(251, 24);
-            this.cBoxEstado.TabIndex = 0;
-            // 
             // FrmHabitaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -570,11 +570,13 @@
             this.MinimumSize = new System.Drawing.Size(816, 718);
             this.Name = "FrmHabitaciones";
             this.Text = "FrmHabitaciones";
+            this.Load += new System.EventHandler(this.FrmHabitaciones_Load);
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -589,7 +591,6 @@
             this.tableLayoutPanel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tableLayoutPanel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

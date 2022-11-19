@@ -41,7 +41,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DgvListaOcupaciones = new System.Windows.Forms.DataGridView();
+            this.CIDOcupacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDescripcionRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtNombreOcupacion = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,14 +57,14 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvListaOcupaciones)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -120,6 +122,7 @@
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -132,6 +135,7 @@
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -144,6 +148,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnLimpiar
             // 
@@ -156,6 +161,7 @@
             this.btnLimpiar.TabIndex = 3;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnCancelar
             // 
@@ -220,7 +226,7 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.76581F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.23419F));
-            this.tableLayoutPanel3.Controls.Add(this.dataGridView1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.DgvListaOcupaciones, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -231,14 +237,40 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(850, 195);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // dataGridView1
+            // DgvListaOcupaciones
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(417, 189);
-            this.dataGridView1.TabIndex = 0;
+            this.DgvListaOcupaciones.AllowUserToAddRows = false;
+            this.DgvListaOcupaciones.AllowUserToDeleteRows = false;
+            this.DgvListaOcupaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvListaOcupaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CIDOcupacion,
+            this.CDescripcionRol});
+            this.DgvListaOcupaciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgvListaOcupaciones.Location = new System.Drawing.Point(3, 3);
+            this.DgvListaOcupaciones.MultiSelect = false;
+            this.DgvListaOcupaciones.Name = "DgvListaOcupaciones";
+            this.DgvListaOcupaciones.ReadOnly = true;
+            this.DgvListaOcupaciones.RowHeadersVisible = false;
+            this.DgvListaOcupaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvListaOcupaciones.Size = new System.Drawing.Size(417, 189);
+            this.DgvListaOcupaciones.TabIndex = 0;
+            this.DgvListaOcupaciones.VirtualMode = true;
+            this.DgvListaOcupaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaOcupaciones_CellClick);
+            // 
+            // CIDOcupacion
+            // 
+            this.CIDOcupacion.DataPropertyName = "IDOcupacion";
+            this.CIDOcupacion.HeaderText = "ID Ocupacion";
+            this.CIDOcupacion.Name = "CIDOcupacion";
+            this.CIDOcupacion.ReadOnly = true;
+            // 
+            // CDescripcionRol
+            // 
+            this.CDescripcionRol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CDescripcionRol.DataPropertyName = "DescripcionRol";
+            this.CDescripcionRol.HeaderText = "Descripcion Rol";
+            this.CDescripcionRol.Name = "CDescripcionRol";
+            this.CDescripcionRol.ReadOnly = true;
             // 
             // tableLayoutPanel4
             // 
@@ -390,17 +422,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(137, 22);
             this.txtBuscar.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(481, 38);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(318, 29);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Datos de las Ocupaciones";
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // pictureBox1
             // 
@@ -412,6 +434,17 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(481, 38);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(318, 29);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Datos de las Ocupaciones";
             // 
             // FrmOcupacionesGestion
             // 
@@ -427,6 +460,7 @@
             this.MinimumSize = new System.Drawing.Size(890, 563);
             this.Name = "FrmOcupacionesGestion";
             this.Text = "Mantenimiento de Ocupaciones";
+            this.Load += new System.EventHandler(this.FrmOcupacionesGestion_Load);
             this.panel6.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
@@ -434,7 +468,7 @@
             this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvListaOcupaciones)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -464,7 +498,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DgvListaOcupaciones;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TextBox txtNombreOcupacion;
         private System.Windows.Forms.Label label6;
@@ -480,5 +514,7 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIDOcupacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CDescripcionRol;
     }
 }
