@@ -30,7 +30,14 @@
         {
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvLista = new System.Windows.Forms.DataGridView();
+            this.CIDEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CApellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label14 = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
@@ -72,7 +79,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -102,7 +109,7 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.76581F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.23419F));
-            this.tableLayoutPanel3.Controls.Add(this.dataGridView1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.dgvLista, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -113,14 +120,87 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(844, 325);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvLista
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(414, 319);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvLista.AllowUserToAddRows = false;
+            this.dgvLista.AllowUserToDeleteRows = false;
+            this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CIDEmpleado,
+            this.CCedula,
+            this.CNombre,
+            this.CApellidos,
+            this.CCorreo,
+            this.CDireccion,
+            this.CTelefono});
+            this.dgvLista.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvLista.Location = new System.Drawing.Point(3, 3);
+            this.dgvLista.MultiSelect = false;
+            this.dgvLista.Name = "dgvLista";
+            this.dgvLista.ReadOnly = true;
+            this.dgvLista.RowHeadersVisible = false;
+            this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLista.Size = new System.Drawing.Size(414, 319);
+            this.dgvLista.TabIndex = 3;
+            this.dgvLista.VirtualMode = true;
+            this.dgvLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellClick);
+            // 
+            // CIDEmpleado
+            // 
+            this.CIDEmpleado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CIDEmpleado.DataPropertyName = "IDEmpleado";
+            this.CIDEmpleado.HeaderText = "IDEmpleado";
+            this.CIDEmpleado.Name = "CIDEmpleado";
+            this.CIDEmpleado.ReadOnly = true;
+            this.CIDEmpleado.Visible = false;
+            // 
+            // CCedula
+            // 
+            this.CCedula.DataPropertyName = "Cedula";
+            this.CCedula.HeaderText = "Cedula";
+            this.CCedula.Name = "CCedula";
+            this.CCedula.ReadOnly = true;
+            // 
+            // CNombre
+            // 
+            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CNombre.DataPropertyName = "Nombre";
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.ReadOnly = true;
+            // 
+            // CApellidos
+            // 
+            this.CApellidos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CApellidos.DataPropertyName = "Apellidos";
+            this.CApellidos.HeaderText = "Apellidos";
+            this.CApellidos.Name = "CApellidos";
+            this.CApellidos.ReadOnly = true;
+            // 
+            // CCorreo
+            // 
+            this.CCorreo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CCorreo.DataPropertyName = "Correo";
+            this.CCorreo.HeaderText = "Correo";
+            this.CCorreo.Name = "CCorreo";
+            this.CCorreo.ReadOnly = true;
+            this.CCorreo.Visible = false;
+            // 
+            // CDireccion
+            // 
+            this.CDireccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CDireccion.DataPropertyName = "Direccion";
+            this.CDireccion.HeaderText = "Direccion";
+            this.CDireccion.Name = "CDireccion";
+            this.CDireccion.ReadOnly = true;
+            this.CDireccion.Visible = false;
+            // 
+            // CTelefono
+            // 
+            this.CTelefono.DataPropertyName = "Telefono";
+            this.CTelefono.HeaderText = "Telefono";
+            this.CTelefono.Name = "CTelefono";
+            this.CTelefono.ReadOnly = true;
             // 
             // tableLayoutPanel4
             // 
@@ -312,6 +392,7 @@
             // cboxEstado
             // 
             this.cboxEstado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxEstado.FormattingEnabled = true;
             this.cboxEstado.Location = new System.Drawing.Point(135, 248);
             this.cboxEstado.Name = "cboxEstado";
@@ -321,6 +402,7 @@
             // cboxOcupacion
             // 
             this.cboxOcupacion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboxOcupacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxOcupacion.FormattingEnabled = true;
             this.cboxOcupacion.Location = new System.Drawing.Point(135, 283);
             this.cboxOcupacion.Name = "cboxOcupacion";
@@ -492,6 +574,7 @@
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -504,6 +587,7 @@
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -516,6 +600,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnLimpiar
             // 
@@ -528,6 +613,7 @@
             this.btnLimpiar.TabIndex = 3;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnCancelar
             // 
@@ -587,9 +673,10 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmEmpleadosGestion";
             this.Text = "FrmEmpleadosGestion";
+            this.Load += new System.EventHandler(this.FrmEmpleadosGestion_Load);
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -614,7 +701,7 @@
 
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvLista;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtCedula;
@@ -654,5 +741,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboxEstado;
         private System.Windows.Forms.ComboBox cboxOcupacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIDEmpleado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CApellidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCorreo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CDireccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
     }
 }

@@ -179,6 +179,7 @@ namespace Logica.Models
             return R;
 
         }
+
         public bool ConsultarPorCedula()
         {
             //TODO: ejecutar SP que contenga la instruccion
@@ -219,8 +220,6 @@ namespace Logica.Models
 
 
             return R;
-
-
 
 
         }

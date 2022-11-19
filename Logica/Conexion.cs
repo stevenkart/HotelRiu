@@ -63,6 +63,8 @@ namespace Logica
          Sirve para hacer consultas tipo: SELECT FROM y crear un
          DataTable con dicha info.
         */
+
+        
         public DataTable EjecutarSelect(string NombreSP, bool CargarEsquemaDeTabla = false)
         {
             DataTable Retorno = new DataTable();
@@ -92,6 +94,8 @@ namespace Logica
             }
             return Retorno;
         }
+
+        
 
         public Object EjecutarConRetornoEscalar(string NombreSP) // cuando una tabla devuelve el ID
         {
