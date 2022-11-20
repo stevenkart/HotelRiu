@@ -121,5 +121,39 @@ namespace Logica.Models
             return R;
         }
 
+
+        public DataTable Listar()
+        {
+            
+            DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+        
+
+            R = MiCnn.EjecutarSelect("SPOcupacionLista");
+
+            return R;
+        }
+
+
+
+        public int ConsultarPorOcupacion(string pDescripcionRol)
+        {
+            int R = 0;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@DescripcionRol", pDescripcionRol));
+
+            DataTable respuesta = MiCnn.EjecutarSelect("SPOcupacionConsultarPorOcupacion");
+
+            if (respuesta.Rows.Count > 0)
+            {
+                R = 1;
+            }
+
+            return R;
+        }
     }
 }

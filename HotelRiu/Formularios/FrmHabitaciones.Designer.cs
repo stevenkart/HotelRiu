@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHabitaciones));
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -68,9 +67,16 @@
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.dgvLista = new System.Windows.Forms.DataGridView();
+            this.CIDHabitacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CJacuzzi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCama_Matrimonial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCantidad_cama = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CAire_Acondicionado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CIDEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -82,6 +88,7 @@
             this.panel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -101,7 +108,7 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.76581F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.23419F));
-            this.tableLayoutPanel3.Controls.Add(this.dataGridView1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.dgvLista, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -111,15 +118,6 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(776, 339);
             this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(380, 333);
-            this.dataGridView1.TabIndex = 0;
             // 
             // tableLayoutPanel4
             // 
@@ -241,6 +239,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(257, 22);
             this.txtPrecio.TabIndex = 15;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // txtCamas
             // 
@@ -249,6 +248,7 @@
             this.txtCamas.Name = "txtCamas";
             this.txtCamas.Size = new System.Drawing.Size(257, 22);
             this.txtCamas.TabIndex = 17;
+            this.txtCamas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCamas_KeyPress);
             // 
             // checkbJacuzzi
             // 
@@ -300,6 +300,7 @@
             // cBoxEstado
             // 
             this.cBoxEstado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cBoxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxEstado.FormattingEnabled = true;
             this.cBoxEstado.Location = new System.Drawing.Point(3, 12);
             this.cBoxEstado.Name = "cBoxEstado";
@@ -400,6 +401,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(129, 22);
             this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // pictureBox1
             // 
@@ -473,6 +475,7 @@
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -485,6 +488,7 @@
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -497,6 +501,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnLimpiar
             // 
@@ -509,6 +514,7 @@
             this.btnLimpiar.TabIndex = 3;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnCancelar
             // 
@@ -521,6 +527,7 @@
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label12
             // 
@@ -556,6 +563,90 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mantenimiento de Habitaciones";
             // 
+            // dgvLista
+            // 
+            this.dgvLista.AllowUserToAddRows = false;
+            this.dgvLista.AllowUserToDeleteRows = false;
+            this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CIDHabitacion,
+            this.CJacuzzi,
+            this.CCama_Matrimonial,
+            this.CCantidad_cama,
+            this.CAire_Acondicionado,
+            this.CIDEstado,
+            this.CPrecio});
+            this.dgvLista.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvLista.Location = new System.Drawing.Point(3, 3);
+            this.dgvLista.MultiSelect = false;
+            this.dgvLista.Name = "dgvLista";
+            this.dgvLista.ReadOnly = true;
+            this.dgvLista.RowHeadersVisible = false;
+            this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLista.Size = new System.Drawing.Size(380, 333);
+            this.dgvLista.TabIndex = 5;
+            this.dgvLista.VirtualMode = true;
+            this.dgvLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellClick);
+            // 
+            // CIDHabitacion
+            // 
+            this.CIDHabitacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CIDHabitacion.DataPropertyName = "IDHabitacion";
+            this.CIDHabitacion.HeaderText = "#Habitación";
+            this.CIDHabitacion.Name = "CIDHabitacion";
+            this.CIDHabitacion.ReadOnly = true;
+            // 
+            // CJacuzzi
+            // 
+            this.CJacuzzi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CJacuzzi.DataPropertyName = "Jacuzzi";
+            this.CJacuzzi.HeaderText = "Jacuzzi";
+            this.CJacuzzi.Name = "CJacuzzi";
+            this.CJacuzzi.ReadOnly = true;
+            this.CJacuzzi.Visible = false;
+            // 
+            // CCama_Matrimonial
+            // 
+            this.CCama_Matrimonial.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CCama_Matrimonial.DataPropertyName = "Cama_Matrimonial";
+            this.CCama_Matrimonial.HeaderText = "Cama Matrimonial";
+            this.CCama_Matrimonial.Name = "CCama_Matrimonial";
+            this.CCama_Matrimonial.ReadOnly = true;
+            this.CCama_Matrimonial.Visible = false;
+            // 
+            // CCantidad_cama
+            // 
+            this.CCantidad_cama.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CCantidad_cama.DataPropertyName = "Cantidad_cama";
+            this.CCantidad_cama.HeaderText = "Cantidad Camas";
+            this.CCantidad_cama.Name = "CCantidad_cama";
+            this.CCantidad_cama.ReadOnly = true;
+            // 
+            // CAire_Acondicionado
+            // 
+            this.CAire_Acondicionado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CAire_Acondicionado.DataPropertyName = "Aire_Acondicionado";
+            this.CAire_Acondicionado.HeaderText = "Aire Acondicionado";
+            this.CAire_Acondicionado.Name = "CAire_Acondicionado";
+            this.CAire_Acondicionado.ReadOnly = true;
+            this.CAire_Acondicionado.Visible = false;
+            // 
+            // CIDEstado
+            // 
+            this.CIDEstado.DataPropertyName = "IDEstado";
+            this.CIDEstado.HeaderText = "Estado";
+            this.CIDEstado.Name = "CIDEstado";
+            this.CIDEstado.ReadOnly = true;
+            this.CIDEstado.Visible = false;
+            // 
+            // CPrecio
+            // 
+            this.CPrecio.DataPropertyName = "Precio";
+            this.CPrecio.HeaderText = "Precio";
+            this.CPrecio.Name = "CPrecio";
+            this.CPrecio.ReadOnly = true;
+            this.CPrecio.Width = 138;
+            // 
             // FrmHabitaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -573,7 +664,6 @@
             this.Load += new System.EventHandler(this.FrmHabitaciones_Load);
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -591,6 +681,7 @@
             this.tableLayoutPanel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -599,7 +690,6 @@
 
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -636,5 +726,13 @@
         private System.Windows.Forms.CheckBox checkbAC;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.ComboBox cBoxEstado;
+        private System.Windows.Forms.DataGridView dgvLista;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIDHabitacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CJacuzzi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCama_Matrimonial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCantidad_cama;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CAire_Acondicionado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIDEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecio;
     }
 }

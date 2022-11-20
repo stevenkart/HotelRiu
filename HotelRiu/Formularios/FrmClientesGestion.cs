@@ -356,5 +356,8 @@ namespace HotelRiu.Formularios
         {
             this.Hide();
         }
+
+
+        
     }
 }
