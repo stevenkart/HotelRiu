@@ -50,7 +50,7 @@ namespace Logica.Models
             // lista de atributos compuestos heredados de otra clase
             // para el INSERT en la basedatos
 
-            //MiCnn.ListaParametros.Add(new SqlParameter("@IDEstado", this.MiEstado.IDEstado));
+            MiCnn.ListaParametros.Add(new SqlParameter("@IDEstado", this.MiEstado.IDEstado));
             MiCnn.ListaParametros.Add(new SqlParameter("@IDOcupacion", this.MiOcupacion.IDOcupacion));
 
             // si el procedimiento retorna y numero mayor a 0 el query u procedimiento se ejecuto perfectamente
@@ -81,7 +81,8 @@ namespace Logica.Models
 
             // lista de atributos compuestos heredados de otra clase
             // para el INSERT en la basedatos
-            // MiCnn.ListaParametros.Add(new SqlParameter("@IDEstado", this.MiEstado.IDEstado));
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@IDEstado", this.MiEstado.IDEstado));
             MiCnn.ListaParametros.Add(new SqlParameter("@IDOcupacion", this.MiOcupacion.IDOcupacion));
 
             MiCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDEmpleado));
@@ -119,17 +120,7 @@ namespace Logica.Models
             return R;
         }
 
-        public DataTable ListarPorCedula(string Cedula)
-        {
-            //TODO usar SP con parametros para ver Ocupaciones 
-            DataTable R = new DataTable();
-
-            return R;
-
-
-
-
-        }
+       
 
 
         //ESTE METODO de consultor RETORNA UN OBJETO de tipo Empleado
@@ -167,12 +158,21 @@ namespace Logica.Models
 
 
 
-        public DataTable Listar(string FiltroBusqueda = "")
+        public DataTable Listar(bool VerActivos = true, string FiltroBusqueda = "")
         {
             DataTable R = new DataTable();
+            int activo = 0;
+            if (VerActivos)
+            {
+                activo = 3;
+            }
+            else
+            {
+                activo = 4;
+            }
 
             Conexion MiCnn = new Conexion();
-
+            MiCnn.ListaParametros.Add(new SqlParameter("@VerActivos", activo));
             MiCnn.ListaParametros.Add(new SqlParameter("@FiltroBusqueda", FiltroBusqueda));
 
             R = MiCnn.EjecutarSelect("SPEmpleadoListar");

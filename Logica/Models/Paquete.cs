@@ -56,38 +56,97 @@ namespace Logica.Models
         }
         public bool Modificar()
         {
-            //TODO: ejecutar SP que contenga la instruccion
-            //UPDATE correspondiente y retornar TRUE si 
-            // TODO sale bien
             bool R = false;
+
+            // conexion con el servidor de base datos
+            Conexion MiCnn = new Conexion();
+
+            // lista de atributos simples para el Proceso en la basedatos
+            MiCnn.ListaParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Descripcion", this.Descripcion));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Gastronomia", this.Gastronomia));
+            MiCnn.ListaParametros.Add(new SqlParameter("@ServicioSpa", this.ServicioSpa));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Tour4x4", this.Tour4x4));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Precio", this.Precio));
+
+            
+            MiCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDPaquete));
+
+            // si el procedimiento retorna y numero mayor a 0 el query u procedimiento se ejecuto perfectamente
+            int resultado = MiCnn.EjecutarUpdateDeleteInsert("SPPaqueteModificar");
+
+            if (resultado > 0)
+            {
+                R = true;
+            }
 
             return R;
 
         }
         public bool Eliminar()
         {
-            //TODO: ejecutar SP que contenga la instruccion
-            //DELETE -> UPDATE correspondiente y retornar TRUE si 
-            // TODO sale bien
-            // SE HACEN ELIMINACIONES LOGICAS, LO QUE HAREMOS SERA CAMBIAR EL VALOR DE CAMPO 
-            //ACTIVO A FALSE
             bool R = false;
+
+            Conexion MiCnn = new Conexion();
+            //debemos pasar la lista parametros para el DELETE
+
+            //ID PAQUETE
+            MiCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDPaquete));
+
+            //ahora se llama el SP 
+
+            int Resultado = MiCnn.EjecutarUpdateDeleteInsert("SPPaqueteEliminar");
+
+            if (Resultado > 0)
+            {
+                R = true;
+            }
+            return R;
+        }
+
+        //ESTE METODO de consultor RETORNA UN OBJETO de tipo HABITACION
+        public Paquete ConsultarPorID()
+        {
+            Paquete R = new Paquete();
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDPaquete));
+
+            DataTable DataPaquete = new DataTable();
+
+            DataPaquete = MiCnn.EjecutarSelect("SPPaqueteConsultarPorID");
+
+            if (DataPaquete != null && DataPaquete.Rows.Count > 0)
+            {
+                DataRow Fila = DataPaquete.Rows[0];
+
+                R.IDPaquete = Convert.ToInt32(Fila["IDPaquete"]);
+                R.Nombre = Convert.ToString(Fila["Nombre"]);
+                R.Descripcion = Convert.ToString(Fila["Descripcion"]);
+                R.Gastronomia = Convert.ToBoolean(Fila["Gastronomia"]);
+                R.ServicioSpa = Convert.ToBoolean(Fila["ServicioSpa"]);
+                R.Tour4x4 = Convert.ToBoolean(Fila["Tour4x4"]);
+                R.Precio = (float)Convert.ToDouble(Fila["Precio"]);
+            }
 
             return R;
 
         }
 
 
-        public DataTable Listar()
+
+        public DataTable Listar(string FiltroBusqueda = "")
         {
-            //TODO usar SP con parametros para ver Ocupaciones 
             DataTable R = new DataTable();
+        
+            Conexion MiCnn = new Conexion();
+       
+            MiCnn.ListaParametros.Add(new SqlParameter("@FiltroBusqueda", FiltroBusqueda));
+
+            R = MiCnn.EjecutarSelect("SPPaqueteListar");
 
             return R;
-
-
-
-
         }
     }
 }

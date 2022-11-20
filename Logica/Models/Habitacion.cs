@@ -65,39 +65,102 @@ namespace Logica.Models
         }
         public bool Modificar()
         {
-            //TODO: ejecutar SP que contenga la instruccion
-            //UPDATE correspondiente y retornar TRUE si 
-            // TODO sale bien
             bool R = false;
+
+            // conexion con el servidor de base datos
+            Conexion MiCnn = new Conexion();
+
+            // lista de atributos simples para el INSERT en la basedatos
+            MiCnn.ListaParametros.Add(new SqlParameter("@Jacuzzi", this.Jacuzzi));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Precio", this.Precio));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Cama_Matrimonial", this.Cama_Matrimonial));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Cantidad_Cama", this.Cantidad_Cama));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Aire_Acondicionado", this.Aire_Acondicionado));
+
+            // lista de atributos compuestos heredados de otra clase
+            // para el INSERT en la basedatos
+            MiCnn.ListaParametros.Add(new SqlParameter("@IDEstado", this.MiEstado.IDEstado));
+            
+            
+            MiCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDHabitacion));
+
+
+            // si el procedimiento retorna y numero mayor a 0 el query u procedimiento se ejecuto perfectamente
+            int resultado = MiCnn.EjecutarUpdateDeleteInsert("SPHabitacionModificar");
+
+            if (resultado > 0)
+            {
+                R = true;
+            }
 
             return R;
 
         }
         public bool Eliminar()
         {
-            //TODO: ejecutar SP que contenga la instruccion
-            //DELETE -> UPDATE correspondiente y retornar TRUE si 
-            // TODO sale bien
-            // SE HACEN ELIMINACIONES LOGICAS, LO QUE HAREMOS SERA CAMBIAR EL VALOR DE CAMPO 
-            //ACTIVO A FALSE
             bool R = false;
 
+            Conexion MiCnn = new Conexion();
+            //debemos pasar la lista parametros para el DELETE
+
+            //ID HABITACION
+            MiCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDHabitacion));
+
+            //ahora se llama el SP 
+
+            int Resultado = MiCnn.EjecutarUpdateDeleteInsert("SPHabitacionEliminar");
+
+            if (Resultado > 0)
+            {
+                R = true;
+            }
+            return R;
+        }
+
+        //ESTE METODO de consultor RETORNA UN OBJETO de tipo HABITACION
+        public Habitacion ConsultarPorID()
+        {
+            Habitacion R = new Habitacion();
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDHabitacion));
+
+            DataTable DataHabitacion = new DataTable();
+
+            DataHabitacion = MiCnn.EjecutarSelect("SPHabitacionConsultarPorID");
+
+            if (DataHabitacion != null && DataHabitacion.Rows.Count > 0)
+            {
+                DataRow Fila = DataHabitacion.Rows[0];
+
+                R.IDHabitacion = Convert.ToInt32(Fila["IDHabitacion"]);
+                R.Jacuzzi = Convert.ToBoolean(Fila["Jacuzzi"]);
+                R.Precio = (float)Convert.ToDouble(Fila["Precio"]);
+                R.Cama_Matrimonial = Convert.ToBoolean(Fila["Cama_Matrimonial"]);
+                R.Cantidad_Cama = Convert.ToInt32(Fila["Cantidad_cama"]);
+                R.Aire_Acondicionado = Convert.ToBoolean(Fila["Aire_Acondicionado"]);
+                R.MiEstado.IDEstado = Convert.ToInt32(Fila["IDEstado"]);
+            }
+
             return R;
 
         }
 
-        public DataTable Listar()
+
+        public DataTable Listar(string FiltroBusqueda = "")
         {
-            //TODO usar SP con parametros para ver Ocupaciones 
             DataTable R = new DataTable();
 
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@FiltroBusqueda", FiltroBusqueda));
+
+            R = MiCnn.EjecutarSelect("SPHabitacionListar");
+
             return R;
-
-
         }
 
-
-
-
+        
     }
 }

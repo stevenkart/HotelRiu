@@ -38,6 +38,8 @@
             this.CCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CIDEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CIDOcupacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label14 = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
@@ -58,6 +60,7 @@
             this.cboxEstado = new System.Windows.Forms.ComboBox();
             this.cboxOcupacion = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.chEstado = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -132,7 +135,9 @@
             this.CApellidos,
             this.CCorreo,
             this.CDireccion,
-            this.CTelefono});
+            this.CTelefono,
+            this.CIDEstado,
+            this.CIDOcupacion});
             this.dgvLista.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLista.Location = new System.Drawing.Point(3, 3);
             this.dgvLista.MultiSelect = false;
@@ -202,6 +207,22 @@
             this.CTelefono.Name = "CTelefono";
             this.CTelefono.ReadOnly = true;
             // 
+            // CIDEstado
+            // 
+            this.CIDEstado.DataPropertyName = "IDEstado";
+            this.CIDEstado.HeaderText = "IDEstado";
+            this.CIDEstado.Name = "CIDEstado";
+            this.CIDEstado.ReadOnly = true;
+            this.CIDEstado.Visible = false;
+            // 
+            // CIDOcupacion
+            // 
+            this.CIDOcupacion.DataPropertyName = "IDOcupacion";
+            this.CIDOcupacion.HeaderText = "IDOcupacion";
+            this.CIDOcupacion.Name = "CIDOcupacion";
+            this.CIDOcupacion.ReadOnly = true;
+            this.CIDOcupacion.Visible = false;
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
@@ -254,7 +275,7 @@
             // 
             // txtCedula
             // 
-            this.txtCedula.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCedula.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCedula.Location = new System.Drawing.Point(135, 41);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(280, 22);
@@ -282,7 +303,7 @@
             // 
             // txtIDEmpleado
             // 
-            this.txtIDEmpleado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtIDEmpleado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtIDEmpleado.Location = new System.Drawing.Point(135, 6);
             this.txtIDEmpleado.Name = "txtIDEmpleado";
             this.txtIDEmpleado.ReadOnly = true;
@@ -351,7 +372,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.Location = new System.Drawing.Point(135, 76);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(280, 22);
@@ -359,7 +380,7 @@
             // 
             // txtApellidos
             // 
-            this.txtApellidos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtApellidos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtApellidos.Location = new System.Drawing.Point(135, 111);
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(280, 22);
@@ -367,27 +388,33 @@
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCorreo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCorreo.Location = new System.Drawing.Point(135, 146);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(280, 22);
             this.txtCorreo.TabIndex = 17;
+            this.txtCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorreo_KeyPress);
+            this.txtCorreo.Leave += new System.EventHandler(this.txtCorreo_Leave);
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDireccion.Location = new System.Drawing.Point(135, 181);
+            this.txtDireccion.MaxLength = 255;
+            this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtDireccion.Size = new System.Drawing.Size(280, 22);
             this.txtDireccion.TabIndex = 18;
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTelefono.Location = new System.Drawing.Point(135, 216);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(280, 22);
             this.txtTelefono.TabIndex = 19;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // cboxEstado
             // 
@@ -412,6 +439,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.chEstado);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -421,15 +449,29 @@
             this.panel4.Size = new System.Drawing.Size(868, 39);
             this.panel4.TabIndex = 14;
             // 
+            // chEstado
+            // 
+            this.chEstado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chEstado.AutoSize = true;
+            this.chEstado.Checked = true;
+            this.chEstado.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chEstado.Location = new System.Drawing.Point(337, 10);
+            this.chEstado.Name = "chEstado";
+            this.chEstado.Size = new System.Drawing.Size(101, 24);
+            this.chEstado.TabIndex = 1;
+            this.chEstado.Text = "Activos ?";
+            this.chEstado.UseVisualStyleBackColor = true;
+            this.chEstado.CheckedChanged += new System.EventHandler(this.chEstado_CheckedChanged);
+            // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(108, 10);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(187, 20);
+            this.label5.Size = new System.Drawing.Size(224, 20);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Listado de Empleados";
+            this.label5.Text = "Listado de Empleados   -->";
             // 
             // panel3
             // 
@@ -503,6 +545,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(137, 22);
             this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // pictureBox1
             // 
@@ -626,6 +669,7 @@
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label12
             // 
@@ -741,6 +785,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboxEstado;
         private System.Windows.Forms.ComboBox cboxOcupacion;
+        private System.Windows.Forms.CheckBox chEstado;
         private System.Windows.Forms.DataGridViewTextBoxColumn CIDEmpleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
@@ -748,5 +793,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CCorreo;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDireccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIDEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIDOcupacion;
     }
 }

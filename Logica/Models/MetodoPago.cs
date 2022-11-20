@@ -39,36 +39,111 @@ namespace Logica.Models
         }
         public bool Modificar()
         {
-            //TODO: ejecutar SP que contenga la instruccion
-            //UPDATE correspondiente y retornar TRUE si 
-            // TODO sale bien
             bool R = false;
+
+            // conexion con el servidor de base datos
+            Conexion MiCnn = new Conexion();
+
+            // lista de atributos para el Procedimiento
+            MiCnn.ListaParametros.Add(new SqlParameter("@DescripcionMetodo", this.DescripcionMetodo));
+            MiCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDMetodoPago));
+
+            // si el procedimiento retorna y numero mayor a 0 el query u procedimiento se ejecuto perfectamente
+            int resultado = MiCnn.EjecutarUpdateDeleteInsert("SPMetodoPagoModificar");
+
+            if (resultado > 0)
+            {
+                R = true;
+            }
 
             return R;
 
         }
         public bool Eliminar()
         {
-            //TODO: ejecutar SP que contenga la instruccion
-            //DELETE -> UPDATE correspondiente y retornar TRUE si 
-            // TODO sale bien
-            // SE HACEN ELIMINACIONES LOGICAS, LO QUE HAREMOS SERA CAMBIAR EL VALOR DE CAMPO 
-            //ACTIVO A FALSE
             bool R = false;
+
+            // conexion con el servidor de base datos
+            Conexion MiCnn = new Conexion();
+
+            // lista de atributos para el Procedimiento
+            MiCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDMetodoPago));
+
+            // si el procedimiento retorna y numero mayor a 0 el query u procedimiento se ejecuto perfectamente
+            int resultado = MiCnn.EjecutarUpdateDeleteInsert("SPMetodoPagoEliminar");
+
+            if (resultado > 0)
+            {
+                R = true;
+            }
 
             return R;
 
+        }
+
+        public MetodoPago ConsultarPorID()
+        {
+            MetodoPago R = new MetodoPago();
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDMetodoPago));
+
+            DataTable DataMetodoPago = new DataTable();
+
+            DataMetodoPago = MiCnn.EjecutarSelect("SPMetodoPagoConsultarPorID");
+
+            if (DataMetodoPago != null && DataMetodoPago.Rows.Count > 0)
+            {
+                DataRow Fila = DataMetodoPago.Rows[0];
+
+                R.IDMetodoPago = Convert.ToInt32(Fila["IDMetodoPago"]);
+                R.DescripcionMetodo = Convert.ToString(Fila["DescripcionMetodo"]);
+            }
+
+            return R;
+        }
+
+        public int ConsultarPorMetodoPago(string pDescripcionMetodo)
+        {
+            int R = 0;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@DescripcionMetodo", pDescripcionMetodo));
+
+            DataTable respuesta = MiCnn.EjecutarSelect("SPMetodoPagoConsultarPorMetodoPago");
+
+            if (respuesta.Rows.Count > 0)
+            {
+                R = respuesta.Rows.Count;
+            }
+
+            return R;
         }
 
 
         public DataTable Listar()
         {
-            //TODO usar SP con parametros para ver Ocupaciones 
+            //TODO usar SP con parametros para ver METODOS PAGO 
             DataTable R = new DataTable();
 
             return R;
         }
 
+        public DataTable Lista()
+        {
+
+            DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+
+
+            R = MiCnn.EjecutarSelect("SPMetodoPagoLista");
+
+            return R;
+        }
 
     }
 }
