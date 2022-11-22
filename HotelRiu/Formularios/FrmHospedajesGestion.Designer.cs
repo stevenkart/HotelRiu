@@ -28,14 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHospedajesGestion));
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvListaHospedajes = new System.Windows.Forms.DataGridView();
+            this.CIDHospedaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCant_ninos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCant_adultos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDiasHospedaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CFechaEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CFechaSalida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CIDPaquete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CIDHabitacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CIDCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CIDEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.cboxEstado = new System.Windows.Forms.ComboBox();
             this.cboxCliente = new System.Windows.Forms.ComboBox();
             this.cboxHabitacion = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.txtCantNinos = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -46,14 +56,16 @@
             this.txtCantAdultos = new System.Windows.Forms.TextBox();
             this.txtDiasHospedaje = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.dateEntrada = new System.Windows.Forms.DateTimePicker();
             this.dateSalida = new System.Windows.Forms.DateTimePicker();
             this.cboxPaquete = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtEstado = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -72,11 +84,13 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnFacturar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtIDHabitacionTemporal = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaHospedajes)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -98,7 +112,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 211);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(10);
-            this.panel5.Size = new System.Drawing.Size(800, 354);
+            this.panel5.Size = new System.Drawing.Size(800, 406);
             this.panel5.TabIndex = 25;
             // 
             // tableLayoutPanel3
@@ -106,7 +120,7 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.76581F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.23419F));
-            this.tableLayoutPanel3.Controls.Add(this.dataGridView1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.dgvListaHospedajes, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -114,27 +128,135 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(776, 330);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 382F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(776, 382);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvListaHospedajes
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(380, 324);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvListaHospedajes.AllowUserToAddRows = false;
+            this.dgvListaHospedajes.AllowUserToDeleteRows = false;
+            this.dgvListaHospedajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaHospedajes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CIDHospedaje,
+            this.CCant_ninos,
+            this.CCant_adultos,
+            this.CDiasHospedaje,
+            this.CFechaEntrada,
+            this.CFechaSalida,
+            this.CTotal,
+            this.CIDPaquete,
+            this.CIDHabitacion,
+            this.CIDCliente,
+            this.CIDEstado});
+            this.dgvListaHospedajes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvListaHospedajes.Location = new System.Drawing.Point(3, 3);
+            this.dgvListaHospedajes.MultiSelect = false;
+            this.dgvListaHospedajes.Name = "dgvListaHospedajes";
+            this.dgvListaHospedajes.ReadOnly = true;
+            this.dgvListaHospedajes.RowHeadersVisible = false;
+            this.dgvListaHospedajes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListaHospedajes.Size = new System.Drawing.Size(380, 376);
+            this.dgvListaHospedajes.TabIndex = 6;
+            this.dgvListaHospedajes.VirtualMode = true;
+            this.dgvListaHospedajes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellClick);
+            // 
+            // CIDHospedaje
+            // 
+            this.CIDHospedaje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CIDHospedaje.DataPropertyName = "IDHospedaje";
+            this.CIDHospedaje.HeaderText = "#Reserva";
+            this.CIDHospedaje.Name = "CIDHospedaje";
+            this.CIDHospedaje.ReadOnly = true;
+            // 
+            // CCant_ninos
+            // 
+            this.CCant_ninos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CCant_ninos.DataPropertyName = "Cant_ninos";
+            this.CCant_ninos.HeaderText = "Cantidad Niños";
+            this.CCant_ninos.Name = "CCant_ninos";
+            this.CCant_ninos.ReadOnly = true;
+            this.CCant_ninos.Visible = false;
+            // 
+            // CCant_adultos
+            // 
+            this.CCant_adultos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CCant_adultos.DataPropertyName = "Cant_adultos";
+            this.CCant_adultos.HeaderText = "Cantidad Adultos";
+            this.CCant_adultos.Name = "CCant_adultos";
+            this.CCant_adultos.ReadOnly = true;
+            this.CCant_adultos.Visible = false;
+            // 
+            // CDiasHospedaje
+            // 
+            this.CDiasHospedaje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CDiasHospedaje.DataPropertyName = "DiasHospedaje";
+            this.CDiasHospedaje.HeaderText = "Días Hospedaje";
+            this.CDiasHospedaje.Name = "CDiasHospedaje";
+            this.CDiasHospedaje.ReadOnly = true;
+            // 
+            // CFechaEntrada
+            // 
+            this.CFechaEntrada.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CFechaEntrada.DataPropertyName = "FechaEntrada";
+            this.CFechaEntrada.HeaderText = "Fecha Entrada";
+            this.CFechaEntrada.Name = "CFechaEntrada";
+            this.CFechaEntrada.ReadOnly = true;
+            // 
+            // CFechaSalida
+            // 
+            this.CFechaSalida.DataPropertyName = "FechaSalida";
+            this.CFechaSalida.HeaderText = "Fecha Salida";
+            this.CFechaSalida.Name = "CFechaSalida";
+            this.CFechaSalida.ReadOnly = true;
+            // 
+            // CTotal
+            // 
+            this.CTotal.DataPropertyName = "Total";
+            this.CTotal.HeaderText = "Precio Total";
+            this.CTotal.Name = "CTotal";
+            this.CTotal.ReadOnly = true;
+            this.CTotal.Width = 138;
+            // 
+            // CIDPaquete
+            // 
+            this.CIDPaquete.DataPropertyName = "IDPaquete";
+            this.CIDPaquete.HeaderText = "Paquete";
+            this.CIDPaquete.Name = "CIDPaquete";
+            this.CIDPaquete.ReadOnly = true;
+            this.CIDPaquete.Visible = false;
+            // 
+            // CIDHabitacion
+            // 
+            this.CIDHabitacion.DataPropertyName = "IDHabitacion";
+            this.CIDHabitacion.HeaderText = "IDHabitacion";
+            this.CIDHabitacion.Name = "CIDHabitacion";
+            this.CIDHabitacion.ReadOnly = true;
+            this.CIDHabitacion.Visible = false;
+            // 
+            // CIDCliente
+            // 
+            this.CIDCliente.DataPropertyName = "IDCliente";
+            this.CIDCliente.HeaderText = "IDCliente";
+            this.CIDCliente.Name = "CIDCliente";
+            this.CIDCliente.ReadOnly = true;
+            this.CIDCliente.Visible = false;
+            // 
+            // CIDEstado
+            // 
+            this.CIDEstado.DataPropertyName = "IDEstado";
+            this.CIDEstado.HeaderText = "IDEstado";
+            this.CIDEstado.Name = "CIDEstado";
+            this.CIDEstado.ReadOnly = true;
+            this.CIDEstado.Visible = false;
             // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.69533F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.30467F));
-            this.tableLayoutPanel4.Controls.Add(this.cboxEstado, 1, 10);
             this.tableLayoutPanel4.Controls.Add(this.cboxCliente, 1, 9);
             this.tableLayoutPanel4.Controls.Add(this.cboxHabitacion, 1, 8);
-            this.tableLayoutPanel4.Controls.Add(this.label16, 0, 10);
             this.tableLayoutPanel4.Controls.Add(this.txtCantNinos, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.label7, 0, 1);
@@ -145,14 +267,16 @@
             this.tableLayoutPanel4.Controls.Add(this.txtCantAdultos, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.txtDiasHospedaje, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.label11, 0, 5);
-            this.tableLayoutPanel4.Controls.Add(this.label10, 0, 6);
-            this.tableLayoutPanel4.Controls.Add(this.txtTotal, 1, 6);
             this.tableLayoutPanel4.Controls.Add(this.label13, 0, 7);
             this.tableLayoutPanel4.Controls.Add(this.label14, 0, 8);
             this.tableLayoutPanel4.Controls.Add(this.label15, 0, 9);
             this.tableLayoutPanel4.Controls.Add(this.dateEntrada, 1, 4);
             this.tableLayoutPanel4.Controls.Add(this.dateSalida, 1, 5);
             this.tableLayoutPanel4.Controls.Add(this.cboxPaquete, 1, 7);
+            this.tableLayoutPanel4.Controls.Add(this.label16, 0, 6);
+            this.tableLayoutPanel4.Controls.Add(this.label10, 0, 10);
+            this.tableLayoutPanel4.Controls.Add(this.txtEstado, 1, 6);
+            this.tableLayoutPanel4.Controls.Add(this.txtTotal, 1, 10);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel4.Location = new System.Drawing.Point(389, 3);
@@ -169,69 +293,63 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(384, 324);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(384, 376);
             this.tableLayoutPanel4.TabIndex = 1;
-            // 
-            // cboxEstado
-            // 
-            this.cboxEstado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboxEstado.FormattingEnabled = true;
-            this.cboxEstado.Location = new System.Drawing.Point(124, 293);
-            this.cboxEstado.Name = "cboxEstado";
-            this.cboxEstado.Size = new System.Drawing.Size(257, 24);
-            this.cboxEstado.TabIndex = 33;
             // 
             // cboxCliente
             // 
-            this.cboxCliente.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboxCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboxCliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboxCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboxCliente.DropDownHeight = 48;
             this.cboxCliente.FormattingEnabled = true;
-            this.cboxCliente.Location = new System.Drawing.Point(124, 264);
+            this.cboxCliente.IntegralHeight = false;
+            this.cboxCliente.Location = new System.Drawing.Point(124, 312);
+            this.cboxCliente.MaxDropDownItems = 4;
             this.cboxCliente.Name = "cboxCliente";
             this.cboxCliente.Size = new System.Drawing.Size(257, 24);
-            this.cboxCliente.TabIndex = 32;
+            this.cboxCliente.TabIndex = 9;
             // 
             // cboxHabitacion
             // 
+            this.cboxHabitacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboxHabitacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboxHabitacion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboxHabitacion.DropDownHeight = 48;
             this.cboxHabitacion.FormattingEnabled = true;
-            this.cboxHabitacion.Location = new System.Drawing.Point(124, 235);
+            this.cboxHabitacion.IntegralHeight = false;
+            this.cboxHabitacion.Location = new System.Drawing.Point(124, 275);
+            this.cboxHabitacion.MaxDropDownItems = 4;
             this.cboxHabitacion.Name = "cboxHabitacion";
             this.cboxHabitacion.Size = new System.Drawing.Size(257, 24);
-            this.cboxHabitacion.TabIndex = 31;
-            // 
-            // label16
-            // 
-            this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(35, 299);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(50, 16);
-            this.label16.TabIndex = 23;
-            this.label16.Text = "Estado";
+            this.cboxHabitacion.TabIndex = 8;
+            this.cboxHabitacion.Leave += new System.EventHandler(this.cboxHabitacion_Leave_1);
             // 
             // txtCantNinos
             // 
-            this.txtCantNinos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCantNinos.Location = new System.Drawing.Point(124, 32);
+            this.txtCantNinos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCantNinos.Location = new System.Drawing.Point(124, 40);
             this.txtCantNinos.Name = "txtCantNinos";
             this.txtCantNinos.Size = new System.Drawing.Size(257, 22);
-            this.txtCantNinos.TabIndex = 7;
+            this.txtCantNinos.TabIndex = 1;
+            this.txtCantNinos.Text = "0";
+            this.txtCantNinos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 6);
+            this.label6.Location = new System.Drawing.Point(5, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 16);
+            this.label6.Size = new System.Drawing.Size(110, 16);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Número";
+            this.label6.Text = "Número Reserva";
             // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 35);
+            this.label7.Location = new System.Drawing.Point(11, 43);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 16);
             this.label7.TabIndex = 1;
@@ -239,18 +357,20 @@
             // 
             // txtIDHospedaje
             // 
-            this.txtIDHospedaje.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtIDHospedaje.Location = new System.Drawing.Point(124, 3);
+            this.txtIDHospedaje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIDHospedaje.Location = new System.Drawing.Point(124, 6);
             this.txtIDHospedaje.Name = "txtIDHospedaje";
             this.txtIDHospedaje.ReadOnly = true;
             this.txtIDHospedaje.Size = new System.Drawing.Size(257, 22);
-            this.txtIDHospedaje.TabIndex = 6;
+            this.txtIDHospedaje.TabIndex = 0;
+            this.txtIDHospedaje.Text = " - -";
+            this.txtIDHospedaje.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 64);
+            this.label3.Location = new System.Drawing.Point(6, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 16);
             this.label3.TabIndex = 8;
@@ -260,7 +380,7 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(4, 93);
+            this.label8.Location = new System.Drawing.Point(4, 111);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(113, 16);
             this.label8.TabIndex = 9;
@@ -270,7 +390,7 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 122);
+            this.label9.Location = new System.Drawing.Point(13, 145);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(95, 16);
             this.label9.TabIndex = 10;
@@ -278,53 +398,41 @@
             // 
             // txtCantAdultos
             // 
-            this.txtCantAdultos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCantAdultos.Location = new System.Drawing.Point(124, 61);
+            this.txtCantAdultos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCantAdultos.Location = new System.Drawing.Point(124, 74);
             this.txtCantAdultos.Name = "txtCantAdultos";
             this.txtCantAdultos.Size = new System.Drawing.Size(257, 22);
-            this.txtCantAdultos.TabIndex = 15;
+            this.txtCantAdultos.TabIndex = 2;
+            this.txtCantAdultos.Text = "0";
+            this.txtCantAdultos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCantAdultos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantAdultos_KeyPress);
             // 
             // txtDiasHospedaje
             // 
-            this.txtDiasHospedaje.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDiasHospedaje.Location = new System.Drawing.Point(124, 90);
+            this.txtDiasHospedaje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDiasHospedaje.Location = new System.Drawing.Point(124, 108);
             this.txtDiasHospedaje.Name = "txtDiasHospedaje";
+            this.txtDiasHospedaje.ReadOnly = true;
             this.txtDiasHospedaje.Size = new System.Drawing.Size(257, 22);
-            this.txtDiasHospedaje.TabIndex = 16;
+            this.txtDiasHospedaje.TabIndex = 3;
+            this.txtDiasHospedaje.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDiasHospedaje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiasHospedaje_KeyPress);
             // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(17, 151);
+            this.label11.Location = new System.Drawing.Point(17, 179);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(87, 16);
             this.label11.TabIndex = 12;
             this.label11.Text = "Fecha Salida";
             // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(41, 180);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(38, 16);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Total";
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTotal.Location = new System.Drawing.Point(124, 177);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(257, 22);
-            this.txtTotal.TabIndex = 18;
-            // 
             // label13
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(31, 209);
+            this.label13.Location = new System.Drawing.Point(31, 247);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(58, 16);
             this.label13.TabIndex = 20;
@@ -334,7 +442,7 @@
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(24, 238);
+            this.label14.Location = new System.Drawing.Point(24, 281);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(72, 16);
             this.label14.TabIndex = 21;
@@ -344,7 +452,7 @@
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(36, 267);
+            this.label15.Location = new System.Drawing.Point(36, 315);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(48, 16);
             this.label15.TabIndex = 22;
@@ -353,27 +461,79 @@
             // dateEntrada
             // 
             this.dateEntrada.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateEntrada.Location = new System.Drawing.Point(124, 119);
+            this.dateEntrada.Location = new System.Drawing.Point(124, 139);
             this.dateEntrada.Name = "dateEntrada";
             this.dateEntrada.Size = new System.Drawing.Size(257, 22);
-            this.dateEntrada.TabIndex = 28;
+            this.dateEntrada.TabIndex = 4;
+            this.dateEntrada.Leave += new System.EventHandler(this.dateEntrada_Leave);
             // 
             // dateSalida
             // 
             this.dateSalida.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateSalida.Location = new System.Drawing.Point(124, 148);
+            this.dateSalida.Location = new System.Drawing.Point(124, 173);
             this.dateSalida.Name = "dateSalida";
             this.dateSalida.Size = new System.Drawing.Size(257, 22);
-            this.dateSalida.TabIndex = 29;
+            this.dateSalida.TabIndex = 5;
+            this.dateSalida.Leave += new System.EventHandler(this.dateSalida_Leave);
             // 
             // cboxPaquete
             // 
-            this.cboxPaquete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboxPaquete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboxPaquete.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboxPaquete.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboxPaquete.BackColor = System.Drawing.SystemColors.Window;
+            this.cboxPaquete.DropDownHeight = 48;
             this.cboxPaquete.FormattingEnabled = true;
-            this.cboxPaquete.Location = new System.Drawing.Point(124, 206);
+            this.cboxPaquete.IntegralHeight = false;
+            this.cboxPaquete.ItemHeight = 16;
+            this.cboxPaquete.Location = new System.Drawing.Point(124, 244);
+            this.cboxPaquete.MaxDropDownItems = 4;
             this.cboxPaquete.Name = "cboxPaquete";
             this.cboxPaquete.Size = new System.Drawing.Size(257, 24);
-            this.cboxPaquete.TabIndex = 30;
+            this.cboxPaquete.TabIndex = 3;
+            this.cboxPaquete.Leave += new System.EventHandler(this.cboxPaquete_Leave);
+            // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(35, 213);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(50, 16);
+            this.label16.TabIndex = 23;
+            this.label16.Text = "Estado";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(41, 350);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(38, 16);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "Total";
+            // 
+            // txtEstado
+            // 
+            this.txtEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEstado.Location = new System.Drawing.Point(124, 210);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.ReadOnly = true;
+            this.txtEstado.Size = new System.Drawing.Size(257, 22);
+            this.txtEstado.TabIndex = 6;
+            this.txtEstado.Text = "Pendiente";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTotal.Location = new System.Drawing.Point(124, 347);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(257, 22);
+            this.txtTotal.TabIndex = 10;
+            this.txtTotal.Text = "0";
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotal_KeyPress);
             // 
             // panel4
             // 
@@ -468,7 +628,8 @@
             this.txtBuscar.Location = new System.Drawing.Point(63, 29);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(129, 22);
-            this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.TabIndex = 0;
+            this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
             // pictureBox1
             // 
@@ -499,7 +660,7 @@
             this.panel6.Controls.Add(this.tableLayoutPanel5);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel6.Location = new System.Drawing.Point(0, 565);
+            this.panel6.Location = new System.Drawing.Point(0, 617);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(10);
             this.panel6.Size = new System.Drawing.Size(800, 94);
@@ -519,12 +680,15 @@
             this.tableLayoutPanel5.Controls.Add(this.btnLimpiar, 3, 1);
             this.tableLayoutPanel5.Controls.Add(this.btnCancelar, 4, 1);
             this.tableLayoutPanel5.Controls.Add(this.label12, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnFacturar, 4, 0);
+            this.tableLayoutPanel5.Controls.Add(this.txtIDHabitacionTemporal, 3, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(10, 10);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(778, 72);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
@@ -538,8 +702,9 @@
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(149, 30);
             this.btnAgregar.TabIndex = 0;
-            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Text = "Reservar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -552,6 +717,7 @@
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -564,6 +730,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnLimpiar
             // 
@@ -576,6 +743,7 @@
             this.btnLimpiar.TabIndex = 3;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnCancelar
             // 
@@ -588,6 +756,7 @@
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label12
             // 
@@ -599,6 +768,19 @@
             this.label12.Size = new System.Drawing.Size(84, 20);
             this.label12.TabIndex = 5;
             this.label12.Text = "Opciones";
+            // 
+            // btnFacturar
+            // 
+            this.btnFacturar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnFacturar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnFacturar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFacturar.Location = new System.Drawing.Point(623, 3);
+            this.btnFacturar.Name = "btnFacturar";
+            this.btnFacturar.Size = new System.Drawing.Size(152, 30);
+            this.btnFacturar.TabIndex = 5;
+            this.btnFacturar.Text = "Facturar";
+            this.btnFacturar.UseVisualStyleBackColor = false;
+            this.btnFacturar.Click += new System.EventHandler(this.btnFacturar_Click);
             // 
             // panel1
             // 
@@ -623,21 +805,31 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mantenimiento de Hospedajes";
             // 
+            // txtIDHabitacionTemporal
+            // 
+            this.txtIDHabitacionTemporal.Location = new System.Drawing.Point(468, 3);
+            this.txtIDHabitacionTemporal.Name = "txtIDHabitacionTemporal";
+            this.txtIDHabitacionTemporal.Size = new System.Drawing.Size(100, 26);
+            this.txtIDHabitacionTemporal.TabIndex = 6;
+            this.txtIDHabitacionTemporal.Visible = false;
+            // 
             // FrmHospedajesGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 659);
+            this.ClientSize = new System.Drawing.Size(800, 711);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmHospedajesGestion";
-            this.Text = "FrmHospedajesGestion";
+            this.Text = "Hospedajes Gestion";
+            this.Load += new System.EventHandler(this.FrmHospedajesGestion_Load);
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaHospedajes)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -662,7 +854,6 @@
 
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TextBox txtCantNinos;
         private System.Windows.Forms.Label label6;
@@ -702,9 +893,23 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DateTimePicker dateEntrada;
         private System.Windows.Forms.DateTimePicker dateSalida;
-        private System.Windows.Forms.ComboBox cboxEstado;
         private System.Windows.Forms.ComboBox cboxCliente;
         private System.Windows.Forms.ComboBox cboxHabitacion;
         private System.Windows.Forms.ComboBox cboxPaquete;
+        private System.Windows.Forms.TextBox txtEstado;
+        private System.Windows.Forms.Button btnFacturar;
+        private System.Windows.Forms.DataGridView dgvListaHospedajes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIDHospedaje;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCant_ninos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCant_adultos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CDiasHospedaje;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CFechaEntrada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CFechaSalida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIDPaquete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIDHabitacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIDCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIDEstado;
+        private System.Windows.Forms.TextBox txtIDHabitacionTemporal;
     }
 }

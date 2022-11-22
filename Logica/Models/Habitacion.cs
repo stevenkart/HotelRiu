@@ -147,7 +147,7 @@ namespace Logica.Models
 
         }
 
-
+        /*
         public DataTable Listar(string FiltroBusqueda = "")
         {
             DataTable R = new DataTable();
@@ -160,7 +160,57 @@ namespace Logica.Models
 
             return R;
         }
+        */
 
-        
+        public DataTable Listar()
+        {
+            DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            //MiCnn.ListaParametros.Add(new SqlParameter("@FiltroBusqueda", FiltroBusqueda));
+
+            R = MiCnn.EjecutarSelect("VHabitacionesDisponibles");
+
+            return R;
+        }
+
+        public DataTable ListarHabitaciones() //retorna la lista de TODOS las habitaciones segun el filtro
+        {
+            DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            //MiCnn.ListaParametros.Add(new SqlParameter("@ID", idHabitacion));
+
+
+            R = MiCnn.EjecutarSelect("SPHabitacionListarHabitaciones");
+
+            return R;
+        }
+
+        public Habitacion PrecioHabitacion()
+        {
+            Habitacion R = new Habitacion();
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDHabitacion));
+
+            DataTable DataHabitacion = new DataTable();
+
+            DataHabitacion = MiCnn.EjecutarSelect("SPHabitacionObtenerPrecio");
+
+            if (DataHabitacion != null && DataHabitacion.Rows.Count > 0)
+            {
+                DataRow Fila = DataHabitacion.Rows[0];
+
+                R.Precio = (float)Convert.ToDouble(Fila["Precio"]);
+            }
+
+            return R;
+
+        }
+
     }
 }

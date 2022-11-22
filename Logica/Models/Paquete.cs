@@ -148,5 +148,42 @@ namespace Logica.Models
 
             return R;
         }
+
+        public DataTable ListarPaquetes() //retorna la lista de TODOS los Paquete
+        {
+            DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            //MiCnn.ListaParametros.Add(new SqlParameter("@Nombre", Nombre));
+
+            R = MiCnn.EjecutarSelect("SPPaqueteListarPaquetes");
+
+            return R;
+        }
+
+        public Paquete PrecioPaquete()
+        {
+            Paquete R = new Paquete();
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDPaquete));
+
+            DataTable DataPaquete = new DataTable();
+
+            DataPaquete = MiCnn.EjecutarSelect("SPPaqueteObtenerPrecio");
+
+            if (DataPaquete != null && DataPaquete.Rows.Count > 0)
+            {
+                DataRow Fila = DataPaquete.Rows[0];
+
+                R.Precio = (float)Convert.ToDouble(Fila["Precio"]);
+            }
+
+            return R;
+
+        }
+
     }
 }
