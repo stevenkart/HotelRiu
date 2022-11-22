@@ -164,9 +164,11 @@
             // 
             // metodosDePagoToolStripMenuItem
             // 
+            this.metodosDePagoToolStripMenuItem.Enabled = false;
             this.metodosDePagoToolStripMenuItem.Name = "metodosDePagoToolStripMenuItem";
             this.metodosDePagoToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.metodosDePagoToolStripMenuItem.Text = "Metodos de Pago";
+            this.metodosDePagoToolStripMenuItem.Visible = false;
             this.metodosDePagoToolStripMenuItem.Click += new System.EventHandler(this.metodosDePagoToolStripMenuItem_Click);
             // 
             // procesosToolStripMenuItem

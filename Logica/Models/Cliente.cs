@@ -220,10 +220,20 @@ namespace Logica.Models
 
 
             return R;
-
-
         }
 
+        public DataTable ListarClientes() //retorna la lista de TODOS los Clientes
+        {
+            DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            //MiCnn.ListaParametros.Add(new SqlParameter("@Cedula", cedula));
+
+            R = MiCnn.EjecutarSelect("SPClienteListarClientes");
+
+            return R;
+        }
 
 
     }

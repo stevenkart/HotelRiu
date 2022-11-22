@@ -31,7 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPaquetesGestion));
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtIDPaquete = new System.Windows.Forms.TextBox();
+            this.checkBoxGastronomia = new System.Windows.Forms.CheckBox();
+            this.checkBoxSpa = new System.Windows.Forms.CheckBox();
+            this.checkBoxTour = new System.Windows.Forms.CheckBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -40,6 +54,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -51,35 +66,27 @@
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtIDPaquete = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.checkBoxGastronomia = new System.Windows.Forms.CheckBox();
-            this.checkBoxSpa = new System.Windows.Forms.CheckBox();
-            this.checkBoxTour = new System.Windows.Forms.CheckBox();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.dgvLista = new System.Windows.Forms.DataGridView();
+            this.CIDPaquete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CGastronomia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CServicioSpa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTour4x4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -99,7 +106,7 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.76581F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.23419F));
-            this.tableLayoutPanel3.Controls.Add(this.dataGridView1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.dgvLista, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,14 +117,175 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(776, 363);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // dataGridView1
+            // tableLayoutPanel4
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(380, 357);
-            this.dataGridView1.TabIndex = 0;
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.93976F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.06024F));
+            this.tableLayoutPanel4.Controls.Add(this.txtPrecio, 1, 6);
+            this.tableLayoutPanel4.Controls.Add(this.txtDescripcion, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.txtNombre, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label6, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.label7, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.label8, 0, 3);
+            this.tableLayoutPanel4.Controls.Add(this.label9, 0, 4);
+            this.tableLayoutPanel4.Controls.Add(this.label10, 0, 5);
+            this.tableLayoutPanel4.Controls.Add(this.label11, 0, 6);
+            this.tableLayoutPanel4.Controls.Add(this.txtIDPaquete, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.checkBoxGastronomia, 1, 3);
+            this.tableLayoutPanel4.Controls.Add(this.checkBoxSpa, 1, 4);
+            this.tableLayoutPanel4.Controls.Add(this.checkBoxTour, 1, 5);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(389, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 7;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(384, 357);
+            this.tableLayoutPanel4.TabIndex = 1;
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPrecio.Location = new System.Drawing.Point(137, 315);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(244, 26);
+            this.txtPrecio.TabIndex = 13;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescripcion.Location = new System.Drawing.Point(137, 112);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(244, 26);
+            this.txtDescripcion.TabIndex = 9;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNombre.Location = new System.Drawing.Point(137, 62);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(244, 26);
+            this.txtNombre.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(128, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "# Paquete";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 65);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(128, 20);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Nombre";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 115);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(128, 20);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Descripción";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 165);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(128, 20);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Gastronomia";
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 215);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(128, 20);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Servicio Spa";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 265);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(128, 20);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Tour 4x4";
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 318);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(128, 20);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Precio";
+            // 
+            // txtIDPaquete
+            // 
+            this.txtIDPaquete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIDPaquete.Enabled = false;
+            this.txtIDPaquete.Location = new System.Drawing.Point(137, 12);
+            this.txtIDPaquete.Name = "txtIDPaquete";
+            this.txtIDPaquete.Size = new System.Drawing.Size(244, 26);
+            this.txtIDPaquete.TabIndex = 7;
+            // 
+            // checkBoxGastronomia
+            // 
+            this.checkBoxGastronomia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxGastronomia.AutoSize = true;
+            this.checkBoxGastronomia.Location = new System.Drawing.Point(137, 163);
+            this.checkBoxGastronomia.Name = "checkBoxGastronomia";
+            this.checkBoxGastronomia.Size = new System.Drawing.Size(244, 24);
+            this.checkBoxGastronomia.TabIndex = 10;
+            this.checkBoxGastronomia.Text = "Si / No ?";
+            this.checkBoxGastronomia.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSpa
+            // 
+            this.checkBoxSpa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxSpa.AutoSize = true;
+            this.checkBoxSpa.Location = new System.Drawing.Point(137, 213);
+            this.checkBoxSpa.Name = "checkBoxSpa";
+            this.checkBoxSpa.Size = new System.Drawing.Size(244, 24);
+            this.checkBoxSpa.TabIndex = 11;
+            this.checkBoxSpa.Text = "Si / No ?";
+            this.checkBoxSpa.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxTour
+            // 
+            this.checkBoxTour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxTour.AutoSize = true;
+            this.checkBoxTour.Location = new System.Drawing.Point(137, 263);
+            this.checkBoxTour.Name = "checkBoxTour";
+            this.checkBoxTour.Size = new System.Drawing.Size(244, 24);
+            this.checkBoxTour.TabIndex = 12;
+            this.checkBoxTour.Text = "Si / No ?";
+            this.checkBoxTour.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -213,6 +381,18 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(129, 22);
             this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::HotelRiu.Properties.Resources.ocupaciones;
+            this.pictureBox1.Location = new System.Drawing.Point(198, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 74);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // label4
             // 
@@ -273,6 +453,7 @@
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -285,6 +466,7 @@
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -297,6 +479,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnLimpiar
             // 
@@ -309,6 +492,7 @@
             this.btnLimpiar.TabIndex = 3;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnCancelar
             // 
@@ -321,6 +505,7 @@
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label12
             // 
@@ -356,184 +541,87 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mantenimiento de Paquetes";
             // 
-            // pictureBox1
+            // dgvLista
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::HotelRiu.Properties.Resources.ocupaciones;
-            this.pictureBox1.Location = new System.Drawing.Point(198, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(163, 74);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.dgvLista.AllowUserToAddRows = false;
+            this.dgvLista.AllowUserToDeleteRows = false;
+            this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CIDPaquete,
+            this.CNombre,
+            this.CDescripcion,
+            this.CGastronomia,
+            this.CServicioSpa,
+            this.CTour4x4,
+            this.CPrecio});
+            this.dgvLista.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvLista.Location = new System.Drawing.Point(3, 3);
+            this.dgvLista.MultiSelect = false;
+            this.dgvLista.Name = "dgvLista";
+            this.dgvLista.ReadOnly = true;
+            this.dgvLista.RowHeadersVisible = false;
+            this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLista.Size = new System.Drawing.Size(380, 357);
+            this.dgvLista.TabIndex = 4;
+            this.dgvLista.VirtualMode = true;
+            this.dgvLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellClick);
             // 
-            // tableLayoutPanel4
+            // CIDPaquete
             // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.93976F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.06024F));
-            this.tableLayoutPanel4.Controls.Add(this.txtPrecio, 1, 6);
-            this.tableLayoutPanel4.Controls.Add(this.txtDescripcion, 1, 2);
-            this.tableLayoutPanel4.Controls.Add(this.txtNombre, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label6, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.label7, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.label8, 0, 3);
-            this.tableLayoutPanel4.Controls.Add(this.label9, 0, 4);
-            this.tableLayoutPanel4.Controls.Add(this.label10, 0, 5);
-            this.tableLayoutPanel4.Controls.Add(this.label11, 0, 6);
-            this.tableLayoutPanel4.Controls.Add(this.txtIDPaquete, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.checkBoxGastronomia, 1, 3);
-            this.tableLayoutPanel4.Controls.Add(this.checkBoxSpa, 1, 4);
-            this.tableLayoutPanel4.Controls.Add(this.checkBoxTour, 1, 5);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(389, 3);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 7;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(384, 357);
-            this.tableLayoutPanel4.TabIndex = 1;
+            this.CIDPaquete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CIDPaquete.DataPropertyName = "IDPaquete";
+            this.CIDPaquete.HeaderText = "#Paquete";
+            this.CIDPaquete.Name = "CIDPaquete";
+            this.CIDPaquete.ReadOnly = true;
             // 
-            // label3
+            // CNombre
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "# Paquete";
+            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CNombre.DataPropertyName = "Nombre";
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.ReadOnly = true;
             // 
-            // label6
+            // CDescripcion
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 66);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(128, 20);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Nombre";
+            this.CDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CDescripcion.DataPropertyName = "Descripcion";
+            this.CDescripcion.HeaderText = "Descripcion";
+            this.CDescripcion.Name = "CDescripcion";
+            this.CDescripcion.ReadOnly = true;
             // 
-            // label7
+            // CGastronomia
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 117);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(128, 20);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Descripción";
+            this.CGastronomia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CGastronomia.DataPropertyName = "Gastronomia";
+            this.CGastronomia.HeaderText = "Gastronomia";
+            this.CGastronomia.Name = "CGastronomia";
+            this.CGastronomia.ReadOnly = true;
+            this.CGastronomia.Visible = false;
             // 
-            // label8
+            // CServicioSpa
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 168);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(128, 20);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Gastronomia";
+            this.CServicioSpa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CServicioSpa.DataPropertyName = "ServicioSpa";
+            this.CServicioSpa.HeaderText = "Servicio Spa";
+            this.CServicioSpa.Name = "CServicioSpa";
+            this.CServicioSpa.ReadOnly = true;
+            this.CServicioSpa.Visible = false;
             // 
-            // label9
+            // CTour4x4
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 219);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(128, 20);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Servicio Spa";
+            this.CTour4x4.DataPropertyName = "Tour4x4";
+            this.CTour4x4.HeaderText = "Tour4x4";
+            this.CTour4x4.Name = "CTour4x4";
+            this.CTour4x4.ReadOnly = true;
+            this.CTour4x4.Visible = false;
             // 
-            // label10
+            // CPrecio
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 270);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(128, 20);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Tour 4x4";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 321);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(128, 20);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Precio";
-            // 
-            // txtIDPaquete
-            // 
-            this.txtIDPaquete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIDPaquete.Location = new System.Drawing.Point(137, 12);
-            this.txtIDPaquete.Name = "txtIDPaquete";
-            this.txtIDPaquete.Size = new System.Drawing.Size(244, 26);
-            this.txtIDPaquete.TabIndex = 7;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNombre.Location = new System.Drawing.Point(137, 63);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(244, 26);
-            this.txtNombre.TabIndex = 8;
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescripcion.Location = new System.Drawing.Point(137, 114);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(244, 26);
-            this.txtDescripcion.TabIndex = 9;
-            // 
-            // checkBoxGastronomia
-            // 
-            this.checkBoxGastronomia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxGastronomia.AutoSize = true;
-            this.checkBoxGastronomia.Location = new System.Drawing.Point(137, 166);
-            this.checkBoxGastronomia.Name = "checkBoxGastronomia";
-            this.checkBoxGastronomia.Size = new System.Drawing.Size(244, 24);
-            this.checkBoxGastronomia.TabIndex = 10;
-            this.checkBoxGastronomia.Text = "Si / No ?";
-            this.checkBoxGastronomia.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxSpa
-            // 
-            this.checkBoxSpa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxSpa.AutoSize = true;
-            this.checkBoxSpa.Location = new System.Drawing.Point(137, 217);
-            this.checkBoxSpa.Name = "checkBoxSpa";
-            this.checkBoxSpa.Size = new System.Drawing.Size(244, 24);
-            this.checkBoxSpa.TabIndex = 11;
-            this.checkBoxSpa.Text = "Si / No ?";
-            this.checkBoxSpa.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxTour
-            // 
-            this.checkBoxTour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxTour.AutoSize = true;
-            this.checkBoxTour.Location = new System.Drawing.Point(137, 268);
-            this.checkBoxTour.Name = "checkBoxTour";
-            this.checkBoxTour.Size = new System.Drawing.Size(244, 24);
-            this.checkBoxTour.TabIndex = 12;
-            this.checkBoxTour.Text = "Si / No ?";
-            this.checkBoxTour.UseVisualStyleBackColor = true;
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPrecio.Location = new System.Drawing.Point(137, 318);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(244, 26);
-            this.txtPrecio.TabIndex = 13;
+            this.CPrecio.DataPropertyName = "Precio";
+            this.CPrecio.HeaderText = "Precio";
+            this.CPrecio.Name = "CPrecio";
+            this.CPrecio.ReadOnly = true;
             // 
             // FrmPaquetesGestion
             // 
@@ -549,9 +637,11 @@
             this.MinimumSize = new System.Drawing.Size(816, 718);
             this.Name = "FrmPaquetesGestion";
             this.Text = "FrmPaquetesGestion";
+            this.Load += new System.EventHandler(this.FrmPaquetesGestion_Load);
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -560,14 +650,13 @@
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -576,7 +665,6 @@
 
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel3;
@@ -612,5 +700,13 @@
         private System.Windows.Forms.CheckBox checkBoxGastronomia;
         private System.Windows.Forms.CheckBox checkBoxSpa;
         private System.Windows.Forms.CheckBox checkBoxTour;
+        private System.Windows.Forms.DataGridView dgvLista;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIDPaquete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CGastronomia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CServicioSpa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CTour4x4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecio;
     }
 }
