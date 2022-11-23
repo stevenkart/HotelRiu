@@ -85,9 +85,9 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.btnFacturar = new System.Windows.Forms.Button();
+            this.txtIDHabitacionTemporal = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtIDHabitacionTemporal = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaHospedajes)).BeginInit();
@@ -304,7 +304,7 @@
             this.cboxCliente.DropDownHeight = 48;
             this.cboxCliente.FormattingEnabled = true;
             this.cboxCliente.IntegralHeight = false;
-            this.cboxCliente.Location = new System.Drawing.Point(124, 312);
+            this.cboxCliente.Location = new System.Drawing.Point(124, 311);
             this.cboxCliente.MaxDropDownItems = 4;
             this.cboxCliente.Name = "cboxCliente";
             this.cboxCliente.Size = new System.Drawing.Size(257, 24);
@@ -486,7 +486,7 @@
             this.cboxPaquete.FormattingEnabled = true;
             this.cboxPaquete.IntegralHeight = false;
             this.cboxPaquete.ItemHeight = 16;
-            this.cboxPaquete.Location = new System.Drawing.Point(124, 244);
+            this.cboxPaquete.Location = new System.Drawing.Point(124, 243);
             this.cboxPaquete.MaxDropDownItems = 4;
             this.cboxPaquete.Name = "cboxPaquete";
             this.cboxPaquete.Size = new System.Drawing.Size(257, 24);
@@ -782,6 +782,14 @@
             this.btnFacturar.UseVisualStyleBackColor = false;
             this.btnFacturar.Click += new System.EventHandler(this.btnFacturar_Click);
             // 
+            // txtIDHabitacionTemporal
+            // 
+            this.txtIDHabitacionTemporal.Location = new System.Drawing.Point(468, 3);
+            this.txtIDHabitacionTemporal.Name = "txtIDHabitacionTemporal";
+            this.txtIDHabitacionTemporal.Size = new System.Drawing.Size(100, 26);
+            this.txtIDHabitacionTemporal.TabIndex = 6;
+            this.txtIDHabitacionTemporal.Visible = false;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
@@ -804,14 +812,6 @@
             this.label1.Size = new System.Drawing.Size(294, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mantenimiento de Hospedajes";
-            // 
-            // txtIDHabitacionTemporal
-            // 
-            this.txtIDHabitacionTemporal.Location = new System.Drawing.Point(468, 3);
-            this.txtIDHabitacionTemporal.Name = "txtIDHabitacionTemporal";
-            this.txtIDHabitacionTemporal.Size = new System.Drawing.Size(100, 26);
-            this.txtIDHabitacionTemporal.TabIndex = 6;
-            this.txtIDHabitacionTemporal.Visible = false;
             // 
             // FrmHospedajesGestion
             // 
