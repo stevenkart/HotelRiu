@@ -14,6 +14,9 @@ namespace HotelRiu.Formularios
     {
         public Logica.Models.Empleado MiEmpleadoLocal { get; set; }
         public DataTable ListaEmpleados { get; set; }
+
+
+
         public FrmEmpleadosGestion()
         {
             InitializeComponent();

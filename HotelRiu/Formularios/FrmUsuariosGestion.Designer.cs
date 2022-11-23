@@ -466,7 +466,7 @@
             // 
             this.cboxEmpleado.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboxEmpleado.FormattingEnabled = true;
-            this.cboxEmpleado.Location = new System.Drawing.Point(138, 303);
+            this.cboxEmpleado.Location = new System.Drawing.Point(138, 305);
             this.cboxEmpleado.Name = "cboxEmpleado";
             this.cboxEmpleado.Size = new System.Drawing.Size(281, 24);
             this.cboxEmpleado.TabIndex = 11;
