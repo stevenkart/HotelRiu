@@ -46,8 +46,8 @@ namespace HotelRiu.Formularios
             //paso 3
             if (dt != null && dt.Rows.Count > 0)
             {
-                cboxEmpleado.ValueMember = "IDEmpleado";
-                cboxEmpleado.DisplayMember = "Nombre";
+                cboxEmpleado.ValueMember = "Id";
+                cboxEmpleado.DisplayMember = "D";
                 cboxEmpleado.DataSource = dt;
                 cboxEmpleado.SelectedIndex = -1;
 

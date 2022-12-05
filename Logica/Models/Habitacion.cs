@@ -147,7 +147,7 @@ namespace Logica.Models
 
         }
 
-        /*
+       
         public DataTable Listar(string FiltroBusqueda = "")
         {
             DataTable R = new DataTable();
@@ -160,8 +160,8 @@ namespace Logica.Models
 
             return R;
         }
-        */
-
+        
+        /*
         public DataTable Listar()
         {
             DataTable R = new DataTable();
@@ -173,7 +173,7 @@ namespace Logica.Models
             R = MiCnn.EjecutarSelect("VHabitacionesDisponibles");
 
             return R;
-        }
+        }*/
 
         public DataTable ListarHabitaciones() //retorna la lista de TODOS las habitaciones segun el filtro
         {
