@@ -210,7 +210,7 @@ namespace HotelRiu.Formularios
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-           /*
+           
             if (!string.IsNullOrEmpty(txtBuscar.Text.Trim()) && txtBuscar.Text.Count() > 0)
             {
                 LlenarListaHabitaciones();
@@ -219,7 +219,7 @@ namespace HotelRiu.Formularios
             {
                 LlenarListaHabitaciones();
             }
-           */
+           
         }
 
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
@@ -235,8 +235,8 @@ namespace HotelRiu.Formularios
         private void LlenarListaHabitaciones()
         {
             ListaHabitaciones = new DataTable();
-            //ListaHabitaciones = MiHabitacionLocal.Listar(txtBuscar.Text.Trim());
-            ListaHabitaciones = MiHabitacionLocal.Listar();
+            ListaHabitaciones = MiHabitacionLocal.Listar(txtBuscar.Text.Trim());
+            //ListaHabitaciones = MiHabitacionLocal.Listar();
 
             dgvLista.DataSource = ListaHabitaciones;
         }
