@@ -12,9 +12,11 @@ namespace HotelRiu.Formularios
 {
     public partial class FrmLogin : Form
     {
+        Logica.Models.Usuario MiUsuario;
         public FrmLogin()
         {
             InitializeComponent();
+            MiUsuario = new Logica.Models.Usuario();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -33,14 +35,28 @@ namespace HotelRiu.Formularios
         }
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            //TODO: se debe validar el ingreso del usuario
-            //si la validacion es correcta permitiria dejar ingresar al usuario al sistema principal 
-            FrmPrincipalMDI MiFormPrincipal = new FrmPrincipalMDI();
-            MiFormPrincipal.Show();
-           
+            if (!string.IsNullOrEmpty(txtNombreUsuario.Text.Trim()) &&
+                !string.IsNullOrEmpty(txtContrasennia.Text.Trim()))
+            {
+                string u = txtNombreUsuario.Text.Trim();
+                string p = txtContrasennia.Text.Trim();
 
-            //Globales.MiformPrincipal.Show();
-            this.Hide();
+                int IdLoginOK = MiUsuario.ValidarLogin(u, p);
+
+                if (IdLoginOK > 0)
+                {
+                    FrmPrincipalMDI MiFormPrincipal = new FrmPrincipalMDI();
+                    MiFormPrincipal.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrecta", "Error validación",
+                        MessageBoxButtons.OK);
+                }
+
+            }
+            
         }
 
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)

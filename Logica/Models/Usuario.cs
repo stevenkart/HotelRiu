@@ -146,15 +146,27 @@ namespace Logica.Models
             return R;
         }
 
-        public bool ValidarLogin(string NombreUsuario, string Contrasennia)
+        public int ValidarLogin(string pNombreUsuario, string pContrasennia)
         {
-            //TODO: ejecutar SP que contenga la instruccion
-            //SELECT correspondiente y retornar TRUE si 
-            // TODO sale bien
-            bool R = false;
+            int R = 0;
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@NombreUsuario", pNombreUsuario));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Contrasenia", pContrasennia));
+
+            DataTable respuesta = MiCnn.EjecutarSelect("SPValidarLogin");
+
+            if (respuesta != null && respuesta.Rows.Count > 0)
+            {
+                DataRow mifila = respuesta.Rows[0];
+
+
+
+                R = Convert.ToInt32(mifila["IDUsuario"]);
+            }
 
             return R;
-
         }
 
         public bool EnviarCodigoRecuperacion(string Email)
