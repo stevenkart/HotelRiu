@@ -613,14 +613,32 @@ namespace HotelRiu.Formularios
         private void LlenarListaHospedajes()
         {
             ListaHospedajes = new DataTable();
-            ListaHospedajes = MiHospedajeLocal.Listar();
+            ListaHospedajes = MiHospedajeLocal.Listar(txtBuscar.Text.Trim(), chCancelados.Checked);
 
             dgvListaHospedajes.DataSource = ListaHospedajes;
+
         }
 
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = Validaciones.CaracteresNumeros(e, true);
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtBuscar.Text.Trim()) && txtBuscar.Text.Count() > 0)
+            {
+                LlenarListaHospedajes();
+            }
+            else if (string.IsNullOrEmpty(txtBuscar.Text.Trim()))
+            {
+                LlenarListaHospedajes();
+            }
+        }
+
+        private void chCancelados_CheckedChanged(object sender, EventArgs e)
+        {
+            LlenarListaHospedajes();
         }
     }
 

@@ -56,12 +56,22 @@ namespace HotelRiu.Formularios
                 }
 
             }
+            else
+            {
+                MessageBox.Show("Usuario y Contraseña no pueden estar vacios", "Error validación",
+                       MessageBoxButtons.OK);
+            }
             
         }
 
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -47,7 +47,7 @@
             this.label1.Location = new System.Drawing.Point(25, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 20);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 6;
             this.label1.Text = "Usuario";
             // 
             // label2
@@ -57,7 +57,7 @@
             this.label2.Location = new System.Drawing.Point(25, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 20);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 5;
             this.label2.Text = "Contraseñia";
             // 
             // btnSalir
@@ -70,7 +70,7 @@
             this.btnSalir.Location = new System.Drawing.Point(29, 154);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(152, 42);
-            this.btnSalir.TabIndex = 2;
+            this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -95,7 +95,7 @@
             this.txtNombreUsuario.Location = new System.Drawing.Point(146, 24);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(258, 26);
-            this.txtNombreUsuario.TabIndex = 4;
+            this.txtNombreUsuario.TabIndex = 0;
             // 
             // txtContrasennia
             // 
@@ -103,7 +103,7 @@
             this.txtContrasennia.Location = new System.Drawing.Point(146, 69);
             this.txtContrasennia.Name = "txtContrasennia";
             this.txtContrasennia.Size = new System.Drawing.Size(258, 26);
-            this.txtContrasennia.TabIndex = 5;
+            this.txtContrasennia.TabIndex = 1;
             this.txtContrasennia.UseSystemPasswordChar = true;
             // 
             // pictureBox1
@@ -125,7 +125,7 @@
             this.btnVerPass.Location = new System.Drawing.Point(411, 70);
             this.btnVerPass.Name = "btnVerPass";
             this.btnVerPass.Size = new System.Drawing.Size(37, 26);
-            this.btnVerPass.TabIndex = 7;
+            this.btnVerPass.TabIndex = 2;
             this.btnVerPass.Text = "Ver";
             this.btnVerPass.UseVisualStyleBackColor = false;
             this.btnVerPass.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnVerPass_MouseDown);
@@ -133,6 +133,7 @@
             // 
             // FrmLogin
             // 
+            this.AcceptButton = this.btnIngresar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
@@ -153,6 +154,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingresar";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmLogin_FormClosed);
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

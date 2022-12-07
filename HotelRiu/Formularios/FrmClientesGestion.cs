@@ -281,7 +281,7 @@ namespace HotelRiu.Formularios
         private void ActivarModificarEliminar()
         {
             btnAgregar.Enabled = false;
-            btnEliminar.Enabled = true;
+            btnEliminar.Enabled = false;
             btnModificar.Enabled = true;
 
         }
