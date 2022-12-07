@@ -132,8 +132,6 @@ namespace HotelRiu.Formularios
             MiUsuarioLocal.NombreUsuario = txtNombreUsuario.Text.Trim();
             MiUsuarioLocal.Contrasenia = txtContrasenia.Text.Trim();
 
-            MessageBox.Show(MiUsuarioLocal.Contrasenia);
-
             DialogResult Respuesta = MessageBox.Show("¿Seguro de Modificar al Usuario", "???",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -196,6 +194,9 @@ namespace HotelRiu.Formularios
             }
         }
 
-        
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

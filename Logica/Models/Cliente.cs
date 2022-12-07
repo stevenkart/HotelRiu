@@ -110,6 +110,7 @@ namespace Logica.Models
             }
             return R;
         }
+
         public Cliente ConsultarPorID()
         {
 
@@ -122,8 +123,8 @@ namespace Logica.Models
             Conexion MyCnn = new Conexion();
 
             MyCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDCliente));
-            DataTable dataCliente = new DataTable();
-            dataCliente = MyCnn.EjecutarSelect("SPClienteConsultarPorID");
+            
+            DataTable dataCliente = MyCnn.EjecutarSelect("SPClienteConsultarPorID");
 
             //Una vez tewnemos un datatable con la data procedemos a llenar las propiedades del 
             //objeto retorno

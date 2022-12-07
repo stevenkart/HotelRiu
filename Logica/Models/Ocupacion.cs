@@ -146,7 +146,9 @@ namespace Logica.Models
 
             MiCnn.ListaParametros.Add(new SqlParameter("@DescripcionRol", pDescripcionRol));
 
-            DataTable respuesta = MiCnn.EjecutarSelect("SPOcupacionConsultarPorOcupacion");
+            DataTable respuesta = new DataTable();
+
+            respuesta = MiCnn.EjecutarSelect("SPOcupacionConsultarPorOcupacion");
 
             if (respuesta.Rows.Count > 0)
             {
