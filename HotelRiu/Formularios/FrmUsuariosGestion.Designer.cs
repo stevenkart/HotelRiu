@@ -46,11 +46,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvLista = new System.Windows.Forms.DataGridView();
-            this.CIDUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CContrasenia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CIDEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtPinRecuperacion = new System.Windows.Forms.TextBox();
             this.txtContrasenia = new System.Windows.Forms.TextBox();
@@ -71,6 +66,11 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.CIDUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CContrasenia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CIDEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -307,49 +307,6 @@
             this.dgvLista.VirtualMode = true;
             this.dgvLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellClick);
             // 
-            // CIDUsuario
-            // 
-            this.CIDUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CIDUsuario.DataPropertyName = "IDUsuario";
-            this.CIDUsuario.HeaderText = "IDUsuario";
-            this.CIDUsuario.Name = "CIDUsuario";
-            this.CIDUsuario.ReadOnly = true;
-            this.CIDUsuario.Visible = false;
-            // 
-            // CNombreUsuario
-            // 
-            this.CNombreUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CNombreUsuario.DataPropertyName = "NombreUsuario";
-            this.CNombreUsuario.HeaderText = "NombreUsuario";
-            this.CNombreUsuario.Name = "CNombreUsuario";
-            this.CNombreUsuario.ReadOnly = true;
-            // 
-            // CContrasenia
-            // 
-            this.CContrasenia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CContrasenia.DataPropertyName = "Contrasenia";
-            this.CContrasenia.HeaderText = "Contrasenia";
-            this.CContrasenia.Name = "CContrasenia";
-            this.CContrasenia.ReadOnly = true;
-            this.CContrasenia.Visible = false;
-            // 
-            // CIDEmpleado
-            // 
-            this.CIDEmpleado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CIDEmpleado.DataPropertyName = "IDEmpleado";
-            this.CIDEmpleado.HeaderText = "IDEmpleado";
-            this.CIDEmpleado.Name = "CIDEmpleado";
-            this.CIDEmpleado.ReadOnly = true;
-            this.CIDEmpleado.Visible = false;
-            // 
-            // CNombre
-            // 
-            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CNombre.DataPropertyName = "Nombre";
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            this.CNombre.ReadOnly = true;
-            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
@@ -572,6 +529,7 @@
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label12
             // 
@@ -594,6 +552,50 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(878, 461);
             this.panel7.TabIndex = 6;
+            // 
+            // CIDUsuario
+            // 
+            this.CIDUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CIDUsuario.DataPropertyName = "IDUsuario";
+            this.CIDUsuario.HeaderText = "IDUsuario";
+            this.CIDUsuario.Name = "CIDUsuario";
+            this.CIDUsuario.ReadOnly = true;
+            this.CIDUsuario.Visible = false;
+            // 
+            // CNombreUsuario
+            // 
+            this.CNombreUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CNombreUsuario.DataPropertyName = "NombreUsuario";
+            this.CNombreUsuario.HeaderText = "NombreUsuario";
+            this.CNombreUsuario.Name = "CNombreUsuario";
+            this.CNombreUsuario.ReadOnly = true;
+            // 
+            // CContrasenia
+            // 
+            this.CContrasenia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CContrasenia.DataPropertyName = "Contrasenia";
+            this.CContrasenia.HeaderText = "Contrasenia";
+            this.CContrasenia.Name = "CContrasenia";
+            this.CContrasenia.ReadOnly = true;
+            this.CContrasenia.Visible = false;
+            // 
+            // CIDEmpleado
+            // 
+            this.CIDEmpleado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CIDEmpleado.DataPropertyName = "IDEmpleado";
+            this.CIDEmpleado.HeaderText = "IDEmpleado";
+            this.CIDEmpleado.Name = "CIDEmpleado";
+            this.CIDEmpleado.ReadOnly = true;
+            this.CIDEmpleado.Visible = false;
+            // 
+            // CNombre
+            // 
+            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CNombre.DataPropertyName = "Nombre";
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.ReadOnly = true;
+            this.CNombre.Width = 208;
             // 
             // FrmUsuariosGestion
             // 
@@ -669,13 +671,13 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.ComboBox cboxEmpleado;
+        private System.Windows.Forms.TextBox txtPinRecuperacion;
+        private System.Windows.Forms.TextBox txtContrasenia;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn CIDUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombreUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn CContrasenia;
         private System.Windows.Forms.DataGridViewTextBoxColumn CIDEmpleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
-        private System.Windows.Forms.TextBox txtPinRecuperacion;
-        private System.Windows.Forms.TextBox txtContrasenia;
-        private System.Windows.Forms.Label label8;
     }
 }
