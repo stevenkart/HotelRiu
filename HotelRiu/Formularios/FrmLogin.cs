@@ -45,8 +45,7 @@ namespace HotelRiu.Formularios
 
                 if (IdLoginOK > 0)
                 {
-                    FrmPrincipalMDI MiFormPrincipal = new FrmPrincipalMDI();
-                    MiFormPrincipal.Show();
+                    Globales.MiformPrincipal.Show();
                     this.Hide();
                 }
                 else
@@ -63,5 +62,6 @@ namespace HotelRiu.Formularios
         {
             Application.Exit();
         }
+
     }
 }

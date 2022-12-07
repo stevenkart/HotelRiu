@@ -35,9 +35,14 @@ namespace Logica.Models
             // conexion con el servidor de base datos
             Conexion MiCnn = new Conexion();
 
+            Crypto MiEncriptador = new Crypto();
+
+            string ContraseniaEncriptada = MiEncriptador.EncriptarEnUnSentido(this.Contrasenia);
+
+
             // lista de atributos simples para el INSERT en la basedatos
             MiCnn.ListaParametros.Add(new SqlParameter("@NombreUsuario", this.NombreUsuario));
-            MiCnn.ListaParametros.Add(new SqlParameter("@Contrasenia", this.Contrasenia));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Contrasenia", ContraseniaEncriptada));
 
             // lista de atributos compuestos heredados de otra clase
             // para el INSERT en la basedatos
@@ -62,9 +67,15 @@ namespace Logica.Models
             // conexion con el servidor de base datos
             Conexion MiCnn = new Conexion();
 
+
+            Crypto MiEncriptador = new Crypto();
+
+            string ContraseniaEncriptada = MiEncriptador.EncriptarEnUnSentido(this.Contrasenia);
+
+
             // lista de atributos simples para el INSERT en la basedatos
             MiCnn.ListaParametros.Add(new SqlParameter("@NombreUsuario", this.NombreUsuario));
-            MiCnn.ListaParametros.Add(new SqlParameter("@Contrasenia", this.Contrasenia));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Contrasenia", ContraseniaEncriptada));
 
             // lista de atributos compuestos heredados de otra clase
             // para el INSERT en la basedatos
@@ -151,9 +162,12 @@ namespace Logica.Models
             int R = 0;
 
             Conexion MiCnn = new Conexion();
+            Crypto MiEncriptador = new Crypto();
+
+            string ContraseniaEncriptada = MiEncriptador.EncriptarEnUnSentido(pContrasennia);
 
             MiCnn.ListaParametros.Add(new SqlParameter("@NombreUsuario", pNombreUsuario));
-            MiCnn.ListaParametros.Add(new SqlParameter("@Contrasenia", pContrasennia));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Contrasenia", ContraseniaEncriptada));
 
             DataTable respuesta = MiCnn.EjecutarSelect("SPValidarLogin");
 
