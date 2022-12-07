@@ -160,6 +160,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(100, 22);
             this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // chActivo
             // 
@@ -172,6 +173,7 @@
             this.chActivo.Size = new System.Drawing.Size(12, 14);
             this.chActivo.TabIndex = 2;
             this.chActivo.UseVisualStyleBackColor = true;
+            this.chActivo.CheckedChanged += new System.EventHandler(this.chActivo_CheckedChanged);
             // 
             // label3
             // 
