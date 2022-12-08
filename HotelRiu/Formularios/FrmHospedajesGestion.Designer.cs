@@ -305,7 +305,7 @@
             this.cboxCliente.DropDownHeight = 48;
             this.cboxCliente.FormattingEnabled = true;
             this.cboxCliente.IntegralHeight = false;
-            this.cboxCliente.Location = new System.Drawing.Point(124, 311);
+            this.cboxCliente.Location = new System.Drawing.Point(124, 312);
             this.cboxCliente.MaxDropDownItems = 4;
             this.cboxCliente.Name = "cboxCliente";
             this.cboxCliente.Size = new System.Drawing.Size(257, 24);
@@ -487,7 +487,7 @@
             this.cboxPaquete.FormattingEnabled = true;
             this.cboxPaquete.IntegralHeight = false;
             this.cboxPaquete.ItemHeight = 16;
-            this.cboxPaquete.Location = new System.Drawing.Point(124, 243);
+            this.cboxPaquete.Location = new System.Drawing.Point(124, 244);
             this.cboxPaquete.MaxDropDownItems = 4;
             this.cboxPaquete.Name = "cboxPaquete";
             this.cboxPaquete.Size = new System.Drawing.Size(257, 24);
@@ -824,9 +824,9 @@
             this.chCancelados.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chCancelados.Location = new System.Drawing.Point(350, 7);
             this.chCancelados.Name = "chCancelados";
-            this.chCancelados.Size = new System.Drawing.Size(132, 24);
+            this.chCancelados.Size = new System.Drawing.Size(231, 24);
             this.chCancelados.TabIndex = 2;
-            this.chCancelados.Text = "Cancelados?";
+            this.chCancelados.Text = "Cancelados y Pendiente?";
             this.chCancelados.UseVisualStyleBackColor = true;
             this.chCancelados.CheckedChanged += new System.EventHandler(this.chCancelados_CheckedChanged);
             // 

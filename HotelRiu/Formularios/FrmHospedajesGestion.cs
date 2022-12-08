@@ -175,7 +175,9 @@ namespace HotelRiu.Formularios
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
-
+            Globales.MiFormFacturacion = new FrmFacturacion();
+            Globales.MiFormFacturacion.Show();
+            this.Hide();
         }
 
         private void txtCantNinos_KeyPress(object sender, KeyPressEventArgs e)
@@ -597,15 +599,20 @@ namespace HotelRiu.Formularios
                     btnFacturar.Enabled = true;
                     ActivarModificarEliminar();
 
-                    if (MiHospedajeLocal.MiEstado.IDEstado == 7 || MiHospedajeLocal.MiEstado.IDEstado == 6)
+                    if (MiHospedajeLocal.MiEstado.IDEstado == 7)
                     {
                         txtEstado.Text = "Cancelado";
                         btnModificar.Enabled = false;
                         btnFacturar.Enabled = false;
                         btnEliminar.Enabled = false;
                     }
-                    
-                    
+                    if (MiHospedajeLocal.MiEstado.IDEstado == 6)
+                    {
+                        txtEstado.Text = "Procesado";
+                        btnModificar.Enabled = false;
+                        btnFacturar.Enabled = false;
+                        btnEliminar.Enabled = false;
+                    }
                 }
             }
         }

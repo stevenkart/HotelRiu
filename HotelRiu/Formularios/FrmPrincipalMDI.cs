@@ -94,5 +94,11 @@ namespace HotelRiu.Formularios
             frmLogin.Show();
             this.Hide();
         }
+
+        private void facturaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Globales.MiFormFacturacion = new FrmFacturacion();
+            Globales.MiFormFacturacion.Show();
+        }
     }
 }

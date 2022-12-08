@@ -187,6 +187,21 @@ namespace Logica.Models
 
         }
 
+        public DataTable ListarPendientes(string FiltroBusqueda = "", bool Cancelados = true) // VA A MOSTRAR PENDIENTES 
+        {
+            DataTable R = new DataTable();
+            Conexion MiCnn = new Conexion();
+
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@FiltroBusqueda", FiltroBusqueda));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Cancelados", Cancelados));
+
+            R = MiCnn.EjecutarSelect("SPHospedajeListarPendientes");
+
+            return R;
+
+        }
+
         public DataTable ListarPorFechas(DateTime FechaInicial, DateTime FechaFinal)
         {
             //TODO usar SP con parametros para ver las fechas de inicio y final

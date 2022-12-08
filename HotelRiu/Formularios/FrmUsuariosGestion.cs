@@ -75,14 +75,18 @@ namespace HotelRiu.Formularios
             txtIDUsuario.Clear();
             txtNombreUsuario.Clear();
             txtContrasenia.Clear();
+            cboxEmpleado.Enabled = true;
             cboxEmpleado.SelectedIndex = -1;
+
         }
 
         private void LimpiarTodo()
         {
             LimpiarForm();
+            LlenarListaUsuarios();
             dgvLista.ClearSelection();
             MiUsuarioLocal = new Logica.Models.Usuario();
+            CargarNombresDeEmpleado();
             //ActivarAgregar();
         }
 
@@ -186,6 +190,9 @@ namespace HotelRiu.Formularios
                     //txtContrasenia.Text = MiUsuarioLocal.Contrasenia.ToString();
 
                     cboxEmpleado.SelectedValue = MiUsuarioLocal.MiEmpleado.IDEmpleado;
+
+
+                    cboxEmpleado.Enabled = false;
 
 
 

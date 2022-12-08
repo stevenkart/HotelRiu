@@ -18,6 +18,8 @@ namespace HotelRiu
 
         public static Form MiformPrincipal = new Formularios.FrmPrincipalMDI();
 
+        public static Logica.Models.Usuario MiUsuarioGlobal = new Logica.Models.Usuario();
+
         public static Formularios.FrmUsuariosGestion MiFormMantUsuarios = new Formularios.FrmUsuariosGestion();
 
         public static Formularios.FrmOcupacionesGestion MiFormMantOcupaciones = new Formularios.FrmOcupacionesGestion();
@@ -33,6 +35,8 @@ namespace HotelRiu
         public static Formularios.FrmPaquetesGestion MiFormMantPaquetes = new Formularios.FrmPaquetesGestion();
 
         public static Formularios.FrmMetodoPagoGestion MiFormMantMetodoPago = new Formularios.FrmMetodoPagoGestion();
+
+        public static Formularios.FrmFacturacion MiFormFacturacion = new Formularios.FrmFacturacion();
 
 
 
