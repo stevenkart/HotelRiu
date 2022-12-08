@@ -135,18 +135,20 @@ namespace Logica.Models
 
 
 
-        public DataTable Listar(string FiltroBusqueda = "")
+        public DataTable Listar(string FiltroBusqueda = "", bool Activo = true)
         {
             DataTable R = new DataTable();
 
             Conexion MiCnn = new Conexion();
 
             MiCnn.ListaParametros.Add(new SqlParameter("@FiltroBusqueda", FiltroBusqueda));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Activo", Activo));
 
             R = MiCnn.EjecutarSelect("SPUsuarioListar");
 
             return R;
         }
+
 
         //listar con el bool sin parametros
         public DataTable ListarInactivos()

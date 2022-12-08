@@ -46,6 +46,11 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvLista = new System.Windows.Forms.DataGridView();
+            this.CIDUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CContrasenia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CIDEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtPinRecuperacion = new System.Windows.Forms.TextBox();
             this.txtContrasenia = new System.Windows.Forms.TextBox();
@@ -66,11 +71,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.CIDUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CContrasenia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CIDEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -160,6 +160,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(100, 22);
             this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // chActivo
             // 
@@ -172,6 +173,7 @@
             this.chActivo.Size = new System.Drawing.Size(12, 14);
             this.chActivo.TabIndex = 2;
             this.chActivo.UseVisualStyleBackColor = true;
+            this.chActivo.CheckedChanged += new System.EventHandler(this.chActivo_CheckedChanged);
             // 
             // label3
             // 
@@ -304,6 +306,50 @@
             this.dgvLista.TabIndex = 0;
             this.dgvLista.VirtualMode = true;
             this.dgvLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellClick);
+            // 
+            // CIDUsuario
+            // 
+            this.CIDUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CIDUsuario.DataPropertyName = "IDUsuario";
+            this.CIDUsuario.HeaderText = "IDUsuario";
+            this.CIDUsuario.Name = "CIDUsuario";
+            this.CIDUsuario.ReadOnly = true;
+            this.CIDUsuario.Visible = false;
+            // 
+            // CNombreUsuario
+            // 
+            this.CNombreUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CNombreUsuario.DataPropertyName = "NombreUsuario";
+            this.CNombreUsuario.HeaderText = "NombreUsuario";
+            this.CNombreUsuario.Name = "CNombreUsuario";
+            this.CNombreUsuario.ReadOnly = true;
+            // 
+            // CContrasenia
+            // 
+            this.CContrasenia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CContrasenia.DataPropertyName = "Contrasenia";
+            this.CContrasenia.HeaderText = "Contrasenia";
+            this.CContrasenia.Name = "CContrasenia";
+            this.CContrasenia.ReadOnly = true;
+            this.CContrasenia.Visible = false;
+            // 
+            // CIDEmpleado
+            // 
+            this.CIDEmpleado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CIDEmpleado.DataPropertyName = "IDEmpleado";
+            this.CIDEmpleado.HeaderText = "IDEmpleado";
+            this.CIDEmpleado.Name = "CIDEmpleado";
+            this.CIDEmpleado.ReadOnly = true;
+            this.CIDEmpleado.Visible = false;
+            // 
+            // CNombre
+            // 
+            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CNombre.DataPropertyName = "Nombre";
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.ReadOnly = true;
+            this.CNombre.Width = 208;
             // 
             // tableLayoutPanel4
             // 
@@ -550,50 +596,6 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(878, 461);
             this.panel7.TabIndex = 6;
-            // 
-            // CIDUsuario
-            // 
-            this.CIDUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CIDUsuario.DataPropertyName = "IDUsuario";
-            this.CIDUsuario.HeaderText = "IDUsuario";
-            this.CIDUsuario.Name = "CIDUsuario";
-            this.CIDUsuario.ReadOnly = true;
-            this.CIDUsuario.Visible = false;
-            // 
-            // CNombreUsuario
-            // 
-            this.CNombreUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CNombreUsuario.DataPropertyName = "NombreUsuario";
-            this.CNombreUsuario.HeaderText = "NombreUsuario";
-            this.CNombreUsuario.Name = "CNombreUsuario";
-            this.CNombreUsuario.ReadOnly = true;
-            // 
-            // CContrasenia
-            // 
-            this.CContrasenia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CContrasenia.DataPropertyName = "Contrasenia";
-            this.CContrasenia.HeaderText = "Contrasenia";
-            this.CContrasenia.Name = "CContrasenia";
-            this.CContrasenia.ReadOnly = true;
-            this.CContrasenia.Visible = false;
-            // 
-            // CIDEmpleado
-            // 
-            this.CIDEmpleado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CIDEmpleado.DataPropertyName = "IDEmpleado";
-            this.CIDEmpleado.HeaderText = "IDEmpleado";
-            this.CIDEmpleado.Name = "CIDEmpleado";
-            this.CIDEmpleado.ReadOnly = true;
-            this.CIDEmpleado.Visible = false;
-            // 
-            // CNombre
-            // 
-            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CNombre.DataPropertyName = "Nombre";
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            this.CNombre.ReadOnly = true;
-            this.CNombre.Width = 208;
             // 
             // FrmUsuariosGestion
             // 

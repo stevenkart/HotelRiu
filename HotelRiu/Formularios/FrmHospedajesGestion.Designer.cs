@@ -66,8 +66,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -88,11 +86,13 @@
             this.txtIDHabitacionTemporal = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.chCancelados = new System.Windows.Forms.CheckBox();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaHospedajes)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -101,6 +101,7 @@
             this.panel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel5
@@ -304,7 +305,7 @@
             this.cboxCliente.DropDownHeight = 48;
             this.cboxCliente.FormattingEnabled = true;
             this.cboxCliente.IntegralHeight = false;
-            this.cboxCliente.Location = new System.Drawing.Point(124, 311);
+            this.cboxCliente.Location = new System.Drawing.Point(124, 312);
             this.cboxCliente.MaxDropDownItems = 4;
             this.cboxCliente.Name = "cboxCliente";
             this.cboxCliente.Size = new System.Drawing.Size(257, 24);
@@ -486,7 +487,7 @@
             this.cboxPaquete.FormattingEnabled = true;
             this.cboxPaquete.IntegralHeight = false;
             this.cboxPaquete.ItemHeight = 16;
-            this.cboxPaquete.Location = new System.Drawing.Point(124, 243);
+            this.cboxPaquete.Location = new System.Drawing.Point(124, 244);
             this.cboxPaquete.MaxDropDownItems = 4;
             this.cboxPaquete.Name = "cboxPaquete";
             this.cboxPaquete.Size = new System.Drawing.Size(257, 24);
@@ -534,28 +535,6 @@
             this.txtTotal.Text = "0";
             this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotal_KeyPress);
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.label5);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(0, 172);
-            this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(10);
-            this.panel4.Size = new System.Drawing.Size(800, 39);
-            this.panel4.TabIndex = 24;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(74, 10);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(193, 20);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Listado de Hospedajes";
             // 
             // panel3
             // 
@@ -629,6 +608,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(129, 22);
             this.txtBuscar.TabIndex = 0;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
             // pictureBox1
@@ -813,6 +793,43 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mantenimiento de Hospedajes";
             // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(74, 10);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(225, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Listado de Hospedajes  -->";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.chCancelados);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel4.Location = new System.Drawing.Point(0, 172);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(10);
+            this.panel4.Size = new System.Drawing.Size(800, 39);
+            this.panel4.TabIndex = 24;
+            // 
+            // chCancelados
+            // 
+            this.chCancelados.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chCancelados.AutoSize = true;
+            this.chCancelados.Checked = true;
+            this.chCancelados.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chCancelados.Location = new System.Drawing.Point(350, 7);
+            this.chCancelados.Name = "chCancelados";
+            this.chCancelados.Size = new System.Drawing.Size(231, 24);
+            this.chCancelados.TabIndex = 2;
+            this.chCancelados.Text = "Cancelados y Pendiente?";
+            this.chCancelados.UseVisualStyleBackColor = true;
+            this.chCancelados.CheckedChanged += new System.EventHandler(this.chCancelados_CheckedChanged);
+            // 
             // FrmHospedajesGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -832,8 +849,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaHospedajes)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -846,6 +861,8 @@
             this.tableLayoutPanel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -867,8 +884,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel2;
@@ -911,5 +926,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CIDCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn CIDEstado;
         private System.Windows.Forms.TextBox txtIDHabitacionTemporal;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.CheckBox chCancelados;
     }
 }

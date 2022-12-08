@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,7 +59,7 @@ namespace HotelRiu.Formularios
         private void LlenarListaUsuarios()
         {
             ListaUsuarios = new DataTable();
-            ListaUsuarios = MiUsuarioLocal.Listar(txtBuscar.Text.Trim());
+            ListaUsuarios = MiUsuarioLocal.Listar(txtBuscar.Text.Trim(), chActivo.Checked);
 
             dgvLista.DataSource = ListaUsuarios;
         }
@@ -75,14 +75,18 @@ namespace HotelRiu.Formularios
             txtIDUsuario.Clear();
             txtNombreUsuario.Clear();
             txtContrasenia.Clear();
+            cboxEmpleado.Enabled = true;
             cboxEmpleado.SelectedIndex = -1;
+
         }
 
         private void LimpiarTodo()
         {
             LimpiarForm();
+            LlenarListaUsuarios();
             dgvLista.ClearSelection();
             MiUsuarioLocal = new Logica.Models.Usuario();
+            CargarNombresDeEmpleado();
             //ActivarAgregar();
         }
 
@@ -188,9 +192,29 @@ namespace HotelRiu.Formularios
                     cboxEmpleado.SelectedValue = MiUsuarioLocal.MiEmpleado.IDEmpleado;
 
 
+                    cboxEmpleado.Enabled = false;
+
+
 
                     //ActivarModificarEliminar();
                 }
+            }
+        }
+
+        private void chActivo_CheckedChanged(object sender, EventArgs e)
+        {
+            LlenarListaUsuarios();
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtBuscar.Text.Trim()) && txtBuscar.Text.Count() > 2)
+            {
+                LlenarListaUsuarios();
+            }
+            else if (string.IsNullOrEmpty(txtBuscar.Text.Trim()))
+            {
+                LlenarListaUsuarios();
             }
         }
 

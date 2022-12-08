@@ -118,17 +118,6 @@ namespace Logica.Models
             // conexion con el servidor de base datos
             Conexion MiCnn = new Conexion();
 
-            /*
-           MiCnn.ListaParametros.Add(new SqlParameter("@Cant_Ninos", this.Cant_Ninos));
-           MiCnn.ListaParametros.Add(new SqlParameter("@Cant_Adultos", this.Cant_Adultos));
-           MiCnn.ListaParametros.Add(new SqlParameter("@DiasHospedaje", this.DiasHospedaje));
-           MiCnn.ListaParametros.Add(new SqlParameter("@FechaEntrada", this.FechaEntrada));
-           MiCnn.ListaParametros.Add(new SqlParameter("@FechaSalida", this.FechaSalida));
-           MiCnn.ListaParametros.Add(new SqlParameter("@Total", this.Total));
-           MiCnn.ListaParametros.Add(new SqlParameter("@IDPaquete", this.MiPaquete.IDPaquete));
-           MiCnn.ListaParametros.Add(new SqlParameter("@IDCliente", this.MiCliente.IDCliente));
-           */
-
             // lista de atributos compuestos heredados de otra clase
             // para el INSERT en la basedatos
 
@@ -183,14 +172,31 @@ namespace Logica.Models
             return R;
         }
 
-        public DataTable Listar()
+        public DataTable Listar(string FiltroBusqueda = "", bool Cancelados = true) // VA A MOSTRAR CANCELADOS O PENDIENTE
         {
             DataTable R = new DataTable();
-          
-
             Conexion MiCnn = new Conexion();
 
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@FiltroBusqueda", FiltroBusqueda));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Cancelados", Cancelados));
+
             R = MiCnn.EjecutarSelect("SPHospedajeListar");
+
+            return R;
+
+        }
+
+        public DataTable ListarPendientes(string FiltroBusqueda = "", bool Cancelados = true) // VA A MOSTRAR PENDIENTES 
+        {
+            DataTable R = new DataTable();
+            Conexion MiCnn = new Conexion();
+
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@FiltroBusqueda", FiltroBusqueda));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Cancelados", Cancelados));
+
+            R = MiCnn.EjecutarSelect("SPHospedajeListarPendientes");
 
             return R;
 

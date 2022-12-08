@@ -175,7 +175,9 @@ namespace HotelRiu.Formularios
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
-
+            Globales.MiFormFacturacion = new FrmFacturacion();
+            Globales.MiFormFacturacion.Show();
+            this.Hide();
         }
 
         private void txtCantNinos_KeyPress(object sender, KeyPressEventArgs e)
@@ -597,15 +599,20 @@ namespace HotelRiu.Formularios
                     btnFacturar.Enabled = true;
                     ActivarModificarEliminar();
 
-                    if (MiHospedajeLocal.MiEstado.IDEstado == 7 || MiHospedajeLocal.MiEstado.IDEstado == 6)
+                    if (MiHospedajeLocal.MiEstado.IDEstado == 7)
                     {
                         txtEstado.Text = "Cancelado";
                         btnModificar.Enabled = false;
                         btnFacturar.Enabled = false;
                         btnEliminar.Enabled = false;
                     }
-                    
-                    
+                    if (MiHospedajeLocal.MiEstado.IDEstado == 6)
+                    {
+                        txtEstado.Text = "Procesado";
+                        btnModificar.Enabled = false;
+                        btnFacturar.Enabled = false;
+                        btnEliminar.Enabled = false;
+                    }
                 }
             }
         }
@@ -613,14 +620,32 @@ namespace HotelRiu.Formularios
         private void LlenarListaHospedajes()
         {
             ListaHospedajes = new DataTable();
-            ListaHospedajes = MiHospedajeLocal.Listar();
+            ListaHospedajes = MiHospedajeLocal.Listar(txtBuscar.Text.Trim(), chCancelados.Checked);
 
             dgvListaHospedajes.DataSource = ListaHospedajes;
+
         }
 
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = Validaciones.CaracteresNumeros(e, true);
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtBuscar.Text.Trim()) && txtBuscar.Text.Count() > 0)
+            {
+                LlenarListaHospedajes();
+            }
+            else if (string.IsNullOrEmpty(txtBuscar.Text.Trim()))
+            {
+                LlenarListaHospedajes();
+            }
+        }
+
+        private void chCancelados_CheckedChanged(object sender, EventArgs e)
+        {
+            LlenarListaHospedajes();
         }
     }
 
