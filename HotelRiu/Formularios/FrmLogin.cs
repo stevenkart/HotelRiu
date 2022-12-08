@@ -33,6 +33,7 @@ namespace HotelRiu.Formularios
         {
             txtContrasennia.UseSystemPasswordChar = true;
         }
+        
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtNombreUsuario.Text.Trim()) &&
@@ -41,12 +42,20 @@ namespace HotelRiu.Formularios
                 string u = txtNombreUsuario.Text.Trim();
                 string p = txtContrasennia.Text.Trim();
 
-                int IdLoginOK = MiUsuario.ValidarLogin(u, p);
+                int IdLoginOK = Globales.MiUsuarioGlobal.ValidarLogin(u, p);
 
                 if (IdLoginOK > 0)
                 {
+                    //hay permiso de ingresar al sistema
+                    Globales.MiUsuarioGlobal.IDUsuario = IdLoginOK;
+
+                    Globales.MiUsuarioGlobal = Globales.MiUsuarioGlobal.ConsultarPorID();
+
+               
                     Globales.MiformPrincipal.Show();
                     this.Hide();
+                  
+
                 }
                 else
                 {
@@ -62,6 +71,16 @@ namespace HotelRiu.Formularios
             }
             
         }
+
+        
+        /*
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            Globales.MiformPrincipal.Show();
+            this.Hide();
+
+        }
+        */
 
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {

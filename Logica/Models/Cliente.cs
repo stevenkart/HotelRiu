@@ -150,11 +150,6 @@ namespace Logica.Models
 
         }
 
-
-
-
-
-
      
         public bool ConsultarPorID(int pIDCliente)
         {
