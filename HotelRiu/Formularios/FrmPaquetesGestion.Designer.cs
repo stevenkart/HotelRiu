@@ -31,6 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPaquetesGestion));
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.dgvLista = new System.Windows.Forms.DataGridView();
+            this.CIDPaquete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CGastronomia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CServicioSpa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTour4x4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -66,16 +74,9 @@
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvLista = new System.Windows.Forms.DataGridView();
-            this.CIDPaquete = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CGastronomia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CServicioSpa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTour4x4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -86,7 +87,6 @@
             this.panel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -116,6 +116,88 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(776, 363);
             this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // dgvLista
+            // 
+            this.dgvLista.AllowUserToAddRows = false;
+            this.dgvLista.AllowUserToDeleteRows = false;
+            this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CIDPaquete,
+            this.CNombre,
+            this.CDescripcion,
+            this.CGastronomia,
+            this.CServicioSpa,
+            this.CTour4x4,
+            this.CPrecio});
+            this.dgvLista.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvLista.Location = new System.Drawing.Point(3, 3);
+            this.dgvLista.MultiSelect = false;
+            this.dgvLista.Name = "dgvLista";
+            this.dgvLista.ReadOnly = true;
+            this.dgvLista.RowHeadersVisible = false;
+            this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLista.Size = new System.Drawing.Size(380, 357);
+            this.dgvLista.TabIndex = 4;
+            this.dgvLista.VirtualMode = true;
+            this.dgvLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellClick);
+            // 
+            // CIDPaquete
+            // 
+            this.CIDPaquete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CIDPaquete.DataPropertyName = "IDPaquete";
+            this.CIDPaquete.HeaderText = "#Paquete";
+            this.CIDPaquete.Name = "CIDPaquete";
+            this.CIDPaquete.ReadOnly = true;
+            // 
+            // CNombre
+            // 
+            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CNombre.DataPropertyName = "Nombre";
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.ReadOnly = true;
+            // 
+            // CDescripcion
+            // 
+            this.CDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CDescripcion.DataPropertyName = "Descripcion";
+            this.CDescripcion.HeaderText = "Descripcion";
+            this.CDescripcion.Name = "CDescripcion";
+            this.CDescripcion.ReadOnly = true;
+            // 
+            // CGastronomia
+            // 
+            this.CGastronomia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CGastronomia.DataPropertyName = "Gastronomia";
+            this.CGastronomia.HeaderText = "Gastronomia";
+            this.CGastronomia.Name = "CGastronomia";
+            this.CGastronomia.ReadOnly = true;
+            this.CGastronomia.Visible = false;
+            // 
+            // CServicioSpa
+            // 
+            this.CServicioSpa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CServicioSpa.DataPropertyName = "ServicioSpa";
+            this.CServicioSpa.HeaderText = "Servicio Spa";
+            this.CServicioSpa.Name = "CServicioSpa";
+            this.CServicioSpa.ReadOnly = true;
+            this.CServicioSpa.Visible = false;
+            // 
+            // CTour4x4
+            // 
+            this.CTour4x4.DataPropertyName = "Tour4x4";
+            this.CTour4x4.HeaderText = "Tour4x4";
+            this.CTour4x4.Name = "CTour4x4";
+            this.CTour4x4.ReadOnly = true;
+            this.CTour4x4.Visible = false;
+            // 
+            // CPrecio
+            // 
+            this.CPrecio.DataPropertyName = "Precio";
+            this.CPrecio.HeaderText = "Precio";
+            this.CPrecio.Name = "CPrecio";
+            this.CPrecio.ReadOnly = true;
             // 
             // tableLayoutPanel4
             // 
@@ -541,88 +623,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mantenimiento de Paquetes";
             // 
-            // dgvLista
-            // 
-            this.dgvLista.AllowUserToAddRows = false;
-            this.dgvLista.AllowUserToDeleteRows = false;
-            this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CIDPaquete,
-            this.CNombre,
-            this.CDescripcion,
-            this.CGastronomia,
-            this.CServicioSpa,
-            this.CTour4x4,
-            this.CPrecio});
-            this.dgvLista.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvLista.Location = new System.Drawing.Point(3, 3);
-            this.dgvLista.MultiSelect = false;
-            this.dgvLista.Name = "dgvLista";
-            this.dgvLista.ReadOnly = true;
-            this.dgvLista.RowHeadersVisible = false;
-            this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLista.Size = new System.Drawing.Size(380, 357);
-            this.dgvLista.TabIndex = 4;
-            this.dgvLista.VirtualMode = true;
-            this.dgvLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellClick);
-            // 
-            // CIDPaquete
-            // 
-            this.CIDPaquete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CIDPaquete.DataPropertyName = "IDPaquete";
-            this.CIDPaquete.HeaderText = "#Paquete";
-            this.CIDPaquete.Name = "CIDPaquete";
-            this.CIDPaquete.ReadOnly = true;
-            // 
-            // CNombre
-            // 
-            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CNombre.DataPropertyName = "Nombre";
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            this.CNombre.ReadOnly = true;
-            // 
-            // CDescripcion
-            // 
-            this.CDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CDescripcion.DataPropertyName = "Descripcion";
-            this.CDescripcion.HeaderText = "Descripcion";
-            this.CDescripcion.Name = "CDescripcion";
-            this.CDescripcion.ReadOnly = true;
-            // 
-            // CGastronomia
-            // 
-            this.CGastronomia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CGastronomia.DataPropertyName = "Gastronomia";
-            this.CGastronomia.HeaderText = "Gastronomia";
-            this.CGastronomia.Name = "CGastronomia";
-            this.CGastronomia.ReadOnly = true;
-            this.CGastronomia.Visible = false;
-            // 
-            // CServicioSpa
-            // 
-            this.CServicioSpa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CServicioSpa.DataPropertyName = "ServicioSpa";
-            this.CServicioSpa.HeaderText = "Servicio Spa";
-            this.CServicioSpa.Name = "CServicioSpa";
-            this.CServicioSpa.ReadOnly = true;
-            this.CServicioSpa.Visible = false;
-            // 
-            // CTour4x4
-            // 
-            this.CTour4x4.DataPropertyName = "Tour4x4";
-            this.CTour4x4.HeaderText = "Tour4x4";
-            this.CTour4x4.Name = "CTour4x4";
-            this.CTour4x4.ReadOnly = true;
-            this.CTour4x4.Visible = false;
-            // 
-            // CPrecio
-            // 
-            this.CPrecio.DataPropertyName = "Precio";
-            this.CPrecio.HeaderText = "Precio";
-            this.CPrecio.Name = "CPrecio";
-            this.CPrecio.ReadOnly = true;
-            // 
             // FrmPaquetesGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -636,10 +636,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(816, 718);
             this.Name = "FrmPaquetesGestion";
-            this.Text = "FrmPaquetesGestion";
+            this.Text = "Gestión de Paquetes";
             this.Load += new System.EventHandler(this.FrmPaquetesGestion_Load);
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -656,7 +657,6 @@
             this.tableLayoutPanel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.ResumeLayout(false);
 
         }

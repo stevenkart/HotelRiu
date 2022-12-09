@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +14,7 @@ namespace HotelRiu.Formularios
 {
     public partial class FrmLogin : Form
     {
+
         Logica.Models.Usuario MiUsuario;
         public FrmLogin()
         {
@@ -91,6 +94,28 @@ namespace HotelRiu.Formularios
         private void FrmLogin_Load(object sender, EventArgs e)
         {
 
+        }
+
+       
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmCambioContrasennia rrmCambioContrasennia = new FrmCambioContrasennia();
+            rrmCambioContrasennia.Show();
+            this.Hide();
+
+            /*
+            FrmRecuperarContrasennia frmRecuperarContrasennia = new FrmRecuperarContrasennia();
+            frmRecuperarContrasennia.Show();
+            this.Hide();
+            */
+
+        }
+
+        private void btnCambiar_Click(object sender, EventArgs e)
+        {
+            FrmCambioContrasennia rrmCambioContrasennia = new FrmCambioContrasennia();
+            rrmCambioContrasennia.Show();
+            this.Hide();
         }
     }
 }

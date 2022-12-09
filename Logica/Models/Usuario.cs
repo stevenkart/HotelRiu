@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Logica.Models
 {
     public class Usuario
@@ -133,6 +134,34 @@ namespace Logica.Models
             return R;
         }
 
+        public Usuario ConsultarPorNombreUsuario()
+        {
+            Usuario R = new Usuario();
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@NombreUsuario", this.NombreUsuario));
+
+            DataTable DataUsuario = new DataTable();
+
+            DataUsuario = MiCnn.EjecutarSelect("SPUsuarioConsultarPorNombreU");
+
+            if (DataUsuario != null && DataUsuario.Rows.Count > 0)
+            {
+                DataRow Fila = DataUsuario.Rows[0];
+
+                R.MiEmpleado.IDEmpleado = Convert.ToInt32(Fila["IDEmpleado"]);
+                R.MiEmpleado.Correo = Convert.ToString(Fila["Correo"]);
+                R.MiEmpleado.Nombre = Convert.ToString(Fila["Nombre"]);
+                R.MiEmpleado.Apellidos = Convert.ToString(Fila["Apellidos"]);
+
+                R.NombreUsuario = Convert.ToString(Fila["NombreUsuario"]);
+                R.IDUsuario = Convert.ToInt32(Fila["IDUsuario"]);
+            }
+
+            return R;
+        }
+
 
 
         public DataTable Listar(string FiltroBusqueda = "", bool Activo = true)
@@ -185,26 +214,58 @@ namespace Logica.Models
             return R;
         }
 
-        public bool EnviarCodigoRecuperacion(string Email)
+        public bool EnviarCodigoRecuperacion(string codigo)
         {
             //TODO: ejecutar SP que contenga la instruccion
             //SELECT correspondiente y retornar TRUE si 
             // TODO sale bien
             bool R = false;
 
-            return R;
+            // conexion con el servidor de base datos
+            Conexion MiCnn = new Conexion();
 
+
+            // lista de atributos simples para el INSERT en la basedatos
+            MiCnn.ListaParametros.Add(new SqlParameter("@Codigo", codigo));
+            MiCnn.ListaParametros.Add(new SqlParameter("@ID", this.IDUsuario));
+
+            // si el procedimiento retorna y numero mayor a 0 el query u procedimiento se ejecuto perfectamente
+            int resultado = MiCnn.EjecutarUpdateDeleteInsert("SPUsuarioCodigoRecover");
+
+            if (resultado > 0)
+            {
+                R = true;
+            }
+            return R;
         }
 
-        public bool ResetearContrasennia()
+       
+
+        public bool ResetearContrasennia(string NombreUsuario, int Codigo, string Contrasennia)
         {
-            //TODO: ejecutar SP que contenga la instruccion
-            //SELECT correspondiente y retornar TRUE si 
-            // TODO sale bien
             bool R = false;
 
-            return R;
+            // conexion con el servidor de base datos
+            Conexion MiCnn = new Conexion();
 
+            Crypto MiEncriptador = new Crypto();
+
+            string ContraseniaEncriptada = MiEncriptador.EncriptarEnUnSentido(Contrasennia);
+
+
+            // lista de atributos simples para el INSERT en la basedatos
+            MiCnn.ListaParametros.Add(new SqlParameter("@NombreUsuario", NombreUsuario));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Codigo", Codigo));
+            MiCnn.ListaParametros.Add(new SqlParameter("@Contrasenia", ContraseniaEncriptada));
+
+            // si el procedimiento retorna y numero mayor a 0 el query u procedimiento se ejecuto perfectamente
+            int resultado = MiCnn.EjecutarUpdateDeleteInsert("SPResetearContrasennia");
+
+            if (resultado > 0)
+            {
+                R = true;
+            }
+            return R;
         }
 
 

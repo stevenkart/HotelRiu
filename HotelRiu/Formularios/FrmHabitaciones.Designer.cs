@@ -660,7 +660,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(816, 718);
             this.Name = "FrmHabitaciones";
-            this.Text = "Habitaciones";
+            this.Text = "Gestión de Habitaciones";
             this.Load += new System.EventHandler(this.FrmHabitaciones_Load);
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
