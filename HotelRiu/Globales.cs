@@ -38,6 +38,11 @@ namespace HotelRiu
 
         public static Formularios.FrmFacturacion MiFormFacturacion = new Formularios.FrmFacturacion();
 
+        public static Formularios.FrmCambioContrasennia MiFormCambioContrasennia = new Formularios.FrmCambioContrasennia();
+
+        public static Formularios.FrmRecuperarContrasennia MiFormRecuperarContrasennia = new Formularios.FrmRecuperarContrasennia();
+
+
 
 
 

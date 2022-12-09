@@ -47,6 +47,13 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.dgvLista = new System.Windows.Forms.DataGridView();
+            this.CIDCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CApellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -67,13 +74,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.CIDCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CApellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -312,6 +312,72 @@
             this.dgvLista.VirtualMode = true;
             this.dgvLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellClick);
             this.dgvLista.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvLista_DataBindingComplete);
+            // 
+            // CIDCliente
+            // 
+            this.CIDCliente.DataPropertyName = "IDCliente";
+            this.CIDCliente.HeaderText = "Código Cliente";
+            this.CIDCliente.Name = "CIDCliente";
+            this.CIDCliente.ReadOnly = true;
+            this.CIDCliente.Visible = false;
+            this.CIDCliente.Width = 80;
+            // 
+            // CCedula
+            // 
+            this.CCedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CCedula.DataPropertyName = "Cedula";
+            this.CCedula.HeaderText = "Cédula";
+            this.CCedula.Name = "CCedula";
+            this.CCedula.ReadOnly = true;
+            this.CCedula.Width = 84;
+            // 
+            // CNombre
+            // 
+            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CNombre.DataPropertyName = "Nombre";
+            this.CNombre.FillWeight = 47.4359F;
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.ReadOnly = true;
+            // 
+            // CApellidos
+            // 
+            this.CApellidos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CApellidos.DataPropertyName = "Apellidos";
+            this.CApellidos.FillWeight = 47.4359F;
+            this.CApellidos.HeaderText = "Apellidos";
+            this.CApellidos.Name = "CApellidos";
+            this.CApellidos.ReadOnly = true;
+            // 
+            // CCorreo
+            // 
+            this.CCorreo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CCorreo.DataPropertyName = "Correo";
+            this.CCorreo.HeaderText = "Email";
+            this.CCorreo.Name = "CCorreo";
+            this.CCorreo.ReadOnly = true;
+            this.CCorreo.Visible = false;
+            this.CCorreo.Width = 150;
+            // 
+            // CTelefono
+            // 
+            this.CTelefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CTelefono.DataPropertyName = "Telefono";
+            this.CTelefono.FillWeight = 205.1282F;
+            this.CTelefono.HeaderText = "Telefono";
+            this.CTelefono.Name = "CTelefono";
+            this.CTelefono.ReadOnly = true;
+            this.CTelefono.Width = 96;
+            // 
+            // CDireccion
+            // 
+            this.CDireccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CDireccion.DataPropertyName = "Direccion";
+            this.CDireccion.HeaderText = "Direccion";
+            this.CDireccion.Name = "CDireccion";
+            this.CDireccion.ReadOnly = true;
+            this.CDireccion.Visible = false;
+            this.CDireccion.Width = 120;
             // 
             // panel4
             // 
@@ -567,72 +633,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mantenimiento de Clientes";
             // 
-            // CIDCliente
-            // 
-            this.CIDCliente.DataPropertyName = "IDCliente";
-            this.CIDCliente.HeaderText = "Código Cliente";
-            this.CIDCliente.Name = "CIDCliente";
-            this.CIDCliente.ReadOnly = true;
-            this.CIDCliente.Visible = false;
-            this.CIDCliente.Width = 80;
-            // 
-            // CCedula
-            // 
-            this.CCedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CCedula.DataPropertyName = "Cedula";
-            this.CCedula.HeaderText = "Cédula";
-            this.CCedula.Name = "CCedula";
-            this.CCedula.ReadOnly = true;
-            this.CCedula.Width = 84;
-            // 
-            // CNombre
-            // 
-            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CNombre.DataPropertyName = "Nombre";
-            this.CNombre.FillWeight = 47.4359F;
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            this.CNombre.ReadOnly = true;
-            // 
-            // CApellidos
-            // 
-            this.CApellidos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CApellidos.DataPropertyName = "Apellidos";
-            this.CApellidos.FillWeight = 47.4359F;
-            this.CApellidos.HeaderText = "Apellidos";
-            this.CApellidos.Name = "CApellidos";
-            this.CApellidos.ReadOnly = true;
-            // 
-            // CCorreo
-            // 
-            this.CCorreo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CCorreo.DataPropertyName = "Correo";
-            this.CCorreo.HeaderText = "Email";
-            this.CCorreo.Name = "CCorreo";
-            this.CCorreo.ReadOnly = true;
-            this.CCorreo.Visible = false;
-            this.CCorreo.Width = 150;
-            // 
-            // CTelefono
-            // 
-            this.CTelefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CTelefono.DataPropertyName = "Telefono";
-            this.CTelefono.FillWeight = 205.1282F;
-            this.CTelefono.HeaderText = "Telefono";
-            this.CTelefono.Name = "CTelefono";
-            this.CTelefono.ReadOnly = true;
-            this.CTelefono.Width = 96;
-            // 
-            // CDireccion
-            // 
-            this.CDireccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CDireccion.DataPropertyName = "Direccion";
-            this.CDireccion.HeaderText = "Direccion";
-            this.CDireccion.Name = "CDireccion";
-            this.CDireccion.ReadOnly = true;
-            this.CDireccion.Visible = false;
-            this.CDireccion.Width = 120;
-            // 
             // FrmClientesGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,7 +646,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(874, 643);
             this.Name = "FrmClientesGestion";
-            this.Text = "Gestión Clientes";
+            this.Text = "Gestión de Clientes";
             this.Load += new System.EventHandler(this.FrmClientesGestion_Load);
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);

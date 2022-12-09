@@ -305,7 +305,7 @@
             this.cboxCliente.DropDownHeight = 48;
             this.cboxCliente.FormattingEnabled = true;
             this.cboxCliente.IntegralHeight = false;
-            this.cboxCliente.Location = new System.Drawing.Point(124, 312);
+            this.cboxCliente.Location = new System.Drawing.Point(124, 311);
             this.cboxCliente.MaxDropDownItems = 4;
             this.cboxCliente.Name = "cboxCliente";
             this.cboxCliente.Size = new System.Drawing.Size(257, 24);
@@ -487,7 +487,7 @@
             this.cboxPaquete.FormattingEnabled = true;
             this.cboxPaquete.IntegralHeight = false;
             this.cboxPaquete.ItemHeight = 16;
-            this.cboxPaquete.Location = new System.Drawing.Point(124, 244);
+            this.cboxPaquete.Location = new System.Drawing.Point(124, 243);
             this.cboxPaquete.MaxDropDownItems = 4;
             this.cboxPaquete.Name = "cboxPaquete";
             this.cboxPaquete.Size = new System.Drawing.Size(257, 24);
@@ -842,7 +842,7 @@
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmHospedajesGestion";
-            this.Text = "Hospedajes Gestion";
+            this.Text = "Gestión de Hospedajes";
             this.Load += new System.EventHandler(this.FrmHospedajesGestion_Load);
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
