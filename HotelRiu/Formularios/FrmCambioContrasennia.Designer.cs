@@ -180,6 +180,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(680, 228);
             this.Name = "FrmCambioContrasennia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cambiar Contraseña";
             this.ResumeLayout(false);
             this.PerformLayout();

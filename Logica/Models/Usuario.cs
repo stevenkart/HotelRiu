@@ -265,15 +265,8 @@ namespace Logica.Models
             {
                 R = true;
             }
+
             return R;
         }
-
-
-
-
-
-
-
-
     }
 }

@@ -93,7 +93,7 @@ namespace HotelRiu.Formularios
             else
             {
                 MessageBox.Show("No se obtuvo respuesta por parte de la Base de datos, de la \n\n" +
-                    "Informacion del usuario ingresado.", ' :(', MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "Informacion del usuario ingresado.", " :(", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

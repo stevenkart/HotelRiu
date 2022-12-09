@@ -98,17 +98,10 @@ namespace HotelRiu.Formularios
 
        
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            FrmCambioContrasennia rrmCambioContrasennia = new FrmCambioContrasennia();
-            rrmCambioContrasennia.Show();
-            this.Hide();
-
-            /*
+        {    
             FrmRecuperarContrasennia frmRecuperarContrasennia = new FrmRecuperarContrasennia();
             frmRecuperarContrasennia.Show();
             this.Hide();
-            */
-
         }
 
         private void btnCambiar_Click(object sender, EventArgs e)
