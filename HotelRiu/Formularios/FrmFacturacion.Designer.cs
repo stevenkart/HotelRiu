@@ -46,6 +46,10 @@
             this.mnuModificarHospedaje = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuQuitarDatos = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtClienteID = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.lblCorreo = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -68,10 +72,6 @@
             this.CIDHabitacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CIDCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CIDEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtClienteID = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -320,6 +320,47 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Encabezado";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(12, 127);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(64, 16);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Teléfono:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(13, 99);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 16);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Cédula:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(13, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 16);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Nombre:";
+            // 
+            // txtClienteID
+            // 
+            this.txtClienteID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClienteID.Location = new System.Drawing.Point(124, 21);
+            this.txtClienteID.Name = "txtClienteID";
+            this.txtClienteID.ReadOnly = true;
+            this.txtClienteID.Size = new System.Drawing.Size(162, 22);
+            this.txtClienteID.TabIndex = 12;
+            this.txtClienteID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtClienteID.TextChanged += new System.EventHandler(this.txtClienteID_TextChanged);
+            // 
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(441, 94);
@@ -498,7 +539,7 @@
             // CIDHabitacion
             // 
             this.CIDHabitacion.DataPropertyName = "IDPaquete";
-            this.CIDHabitacion.HeaderText = "IDHabitacion";
+            this.CIDHabitacion.HeaderText = "Habitacion";
             this.CIDHabitacion.Name = "CIDHabitacion";
             this.CIDHabitacion.ReadOnly = true;
             this.CIDHabitacion.Visible = false;
@@ -518,47 +559,6 @@
             this.CIDEstado.Name = "CIDEstado";
             this.CIDEstado.ReadOnly = true;
             this.CIDEstado.Visible = false;
-            // 
-            // txtClienteID
-            // 
-            this.txtClienteID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClienteID.Location = new System.Drawing.Point(124, 21);
-            this.txtClienteID.Name = "txtClienteID";
-            this.txtClienteID.ReadOnly = true;
-            this.txtClienteID.Size = new System.Drawing.Size(162, 22);
-            this.txtClienteID.TabIndex = 12;
-            this.txtClienteID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtClienteID.TextChanged += new System.EventHandler(this.txtClienteID_TextChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 16);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Nombre:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 99);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 16);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Cédula:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 127);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 16);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Teléfono:";
             // 
             // FrmFacturacion
             // 
@@ -621,6 +621,10 @@
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Label lblApellidos;
         private System.Windows.Forms.Label lblCedula;
+        public System.Windows.Forms.TextBox txtClienteID;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn CIDHospedaje;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCant_ninos;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCant_adultos;
@@ -632,9 +636,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CIDHabitacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn CIDCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn CIDEstado;
-        public System.Windows.Forms.TextBox txtClienteID;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
     }
 }

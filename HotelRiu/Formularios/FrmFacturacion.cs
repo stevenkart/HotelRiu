@@ -34,6 +34,7 @@ namespace HotelRiu.Formularios
             
             LlenarComBoTiposFactura();
             Limpiar();
+            activarAgregrar();
         }
 
         private void LlenarComBoTiposFactura()
@@ -73,6 +74,19 @@ namespace HotelRiu.Formularios
 
         }
 
+        private void activarAgregrar()
+        {
+            mnuAgregarHospedaje.Enabled = true;
+            mnuModificarHospedaje.Enabled = false;
+            mnuQuitarDatos.Enabled = false;
+        }
+        private void activarModificarQuitar()
+        {
+            mnuAgregarHospedaje.Enabled = false;
+            mnuModificarHospedaje.Enabled = true;
+            mnuQuitarDatos.Enabled = true;
+        }
+
         private void mnuAgregarHospedaje_Click(object sender, EventArgs e)
         {
 
@@ -89,7 +103,7 @@ namespace HotelRiu.Formularios
                     //dgvLista.ClearSelection();
 
                     Totalizar();
-                    mnuAgregarHospedaje.Enabled = false;
+                    activarModificarQuitar();
                 }
                 else
                 {
@@ -100,7 +114,7 @@ namespace HotelRiu.Formularios
 
         private void txtClienteID_TextChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(txtClienteID.Text.Trim()) > 0)
+            if (!string.IsNullOrEmpty(txtClienteID.Text))
             {
                 MiClienteLocal = new Logica.Models.Cliente();
 
@@ -139,12 +153,19 @@ namespace HotelRiu.Formularios
 
         private void mnuModificarHospedaje_Click(object sender, EventArgs e)
         {
-            //TODO
+            Globales.MiFormMantHospedajes = new FrmHospedajesGestion();
+            Globales.MiFormMantHospedajes.Show();
+            this.Hide();
         }
 
         private void mnuQuitarDatos_Click(object sender, EventArgs e)
         {
-            //TODO
+            if (DtListaHospedaje.Rows.Count > 0)
+            {
+                DtListaHospedaje.Rows[0].Delete();
+                activarAgregrar();
+                Limpiar();
+            }
         }
 
         private void Totalizar()
