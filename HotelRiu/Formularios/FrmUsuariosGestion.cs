@@ -27,6 +27,8 @@ namespace HotelRiu.Formularios
             LlenarListaUsuarios();
 
             CargarNombresDeEmpleado();
+            ActivarAgregar();
+
         }
 
 
@@ -87,7 +89,7 @@ namespace HotelRiu.Formularios
             dgvLista.ClearSelection();
             MiUsuarioLocal = new Logica.Models.Usuario();
             CargarNombresDeEmpleado();
-            //ActivarAgregar();
+            ActivarAgregar();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -122,6 +124,9 @@ namespace HotelRiu.Formularios
 
                     // llena el data grid de informacion
                     LlenarListaUsuarios();
+
+                    CargarNombresDeEmpleado();
+                    ActivarAgregar();
                 }
                 else
                 {
@@ -196,7 +201,7 @@ namespace HotelRiu.Formularios
 
 
 
-                    //ActivarModificarEliminar();
+                    ActivarModificarEliminar();
                 }
             }
         }
@@ -221,6 +226,20 @@ namespace HotelRiu.Formularios
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+        private void ActivarAgregar()
+        {
+            btnAgregar.Enabled = true;
+            btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
+
+        }
+        private void ActivarModificarEliminar()
+        {
+            btnAgregar.Enabled = false;
+            btnEliminar.Enabled = false; // todo se haria en el modificar, si se va a eliminar el usuario ahi se inactiva 
+            btnModificar.Enabled = true;
+
         }
     }
 }

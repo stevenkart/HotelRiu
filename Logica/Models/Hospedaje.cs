@@ -210,6 +210,22 @@ namespace Logica.Models
             return R;
         }
 
+        public DataTable ListarFacturaFiltro() 
+        {
+            DataTable R = new DataTable();
+            Conexion MiCnn = new Conexion();
+
+
+            MiCnn.ListaParametros.Add(new SqlParameter("@IDHospedaje", this.IDHospedaje));
+     
+            R = MiCnn.EjecutarSelect("SPFacturaListarFiltro");
+
+          
+
+            return R;
+
+        }
+
 
 
     }

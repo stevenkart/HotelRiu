@@ -1,4 +1,6 @@
-﻿using Logica.Models;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using Logica.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -237,6 +239,8 @@ namespace HotelRiu.Formularios
 
             ActivarAgregar();
             LlenarListaHospedajes();
+
+            btnVerFact.Enabled = false;
 
 
         }
@@ -612,6 +616,7 @@ namespace HotelRiu.Formularios
                         btnModificar.Enabled = false;
                         btnFacturar.Enabled = false;
                         btnEliminar.Enabled = false;
+                        btnVerFact.Enabled = true;
                     }
                 }
             }
@@ -646,6 +651,45 @@ namespace HotelRiu.Formularios
         private void chCancelados_CheckedChanged(object sender, EventArgs e)
         {
             LlenarListaHospedajes();
+        }
+
+        private void btnVerFact_Click(object sender, EventArgs e)
+        {
+
+            if (dgvListaHospedajes.SelectedRows.Count == 1)
+            {
+                LimpiarForm();
+
+                DataGridViewRow MiFila = dgvListaHospedajes.SelectedRows[0];
+
+                int idHospedaje = Convert.ToInt32(MiFila.Cells["CIDHospedaje"].Value);
+                /*
+                DataTable MiDataFact = new DataTable();
+
+                MiHospedajeLocal = new Logica.Models.Hospedaje();
+
+                MiHospedajeLocal.IDHospedaje = idHospedaje;
+
+                MiDataFact = MiHospedajeLocal.ListarFacturaFiltro();
+
+    */
+
+                CrystalReport2 crystalReport2 = new CrystalReport2();
+                crystalReport2.SetParameterValue("@IDHospedaje", idHospedaje);
+
+                FrmReporteFactHospedaje frmReporteFactHospedaje = new FrmReporteFactHospedaje();
+                frmReporteFactHospedaje.ShowDialog();
+
+            }
+
+
+           
+
+
+
+
+            
+            
         }
     }
 
