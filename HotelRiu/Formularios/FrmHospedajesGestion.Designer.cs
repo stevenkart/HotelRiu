@@ -84,6 +84,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.btnFacturar = new System.Windows.Forms.Button();
             this.txtIDHabitacionTemporal = new System.Windows.Forms.TextBox();
+            this.btnVerFact = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -305,7 +306,7 @@
             this.cboxCliente.DropDownHeight = 48;
             this.cboxCliente.FormattingEnabled = true;
             this.cboxCliente.IntegralHeight = false;
-            this.cboxCliente.Location = new System.Drawing.Point(124, 311);
+            this.cboxCliente.Location = new System.Drawing.Point(124, 312);
             this.cboxCliente.MaxDropDownItems = 4;
             this.cboxCliente.Name = "cboxCliente";
             this.cboxCliente.Size = new System.Drawing.Size(257, 24);
@@ -487,7 +488,7 @@
             this.cboxPaquete.FormattingEnabled = true;
             this.cboxPaquete.IntegralHeight = false;
             this.cboxPaquete.ItemHeight = 16;
-            this.cboxPaquete.Location = new System.Drawing.Point(124, 243);
+            this.cboxPaquete.Location = new System.Drawing.Point(124, 244);
             this.cboxPaquete.MaxDropDownItems = 4;
             this.cboxPaquete.Name = "cboxPaquete";
             this.cboxPaquete.Size = new System.Drawing.Size(257, 24);
@@ -661,7 +662,8 @@
             this.tableLayoutPanel5.Controls.Add(this.btnCancelar, 4, 1);
             this.tableLayoutPanel5.Controls.Add(this.label12, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.btnFacturar, 4, 0);
-            this.tableLayoutPanel5.Controls.Add(this.txtIDHabitacionTemporal, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.txtIDHabitacionTemporal, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnVerFact, 3, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(10, 10);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -764,11 +766,24 @@
             // 
             // txtIDHabitacionTemporal
             // 
-            this.txtIDHabitacionTemporal.Location = new System.Drawing.Point(468, 3);
+            this.txtIDHabitacionTemporal.Location = new System.Drawing.Point(313, 3);
             this.txtIDHabitacionTemporal.Name = "txtIDHabitacionTemporal";
             this.txtIDHabitacionTemporal.Size = new System.Drawing.Size(100, 26);
             this.txtIDHabitacionTemporal.TabIndex = 6;
             this.txtIDHabitacionTemporal.Visible = false;
+            // 
+            // btnVerFact
+            // 
+            this.btnVerFact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnVerFact.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnVerFact.Enabled = false;
+            this.btnVerFact.Location = new System.Drawing.Point(468, 3);
+            this.btnVerFact.Name = "btnVerFact";
+            this.btnVerFact.Size = new System.Drawing.Size(149, 30);
+            this.btnVerFact.TabIndex = 7;
+            this.btnVerFact.Text = "Ver Factura";
+            this.btnVerFact.UseVisualStyleBackColor = false;
+            this.btnVerFact.Click += new System.EventHandler(this.btnVerFact_Click);
             // 
             // panel1
             // 
@@ -929,5 +944,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.CheckBox chCancelados;
+        private System.Windows.Forms.Button btnVerFact;
     }
 }

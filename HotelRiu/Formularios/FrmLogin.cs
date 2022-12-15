@@ -39,6 +39,13 @@ namespace HotelRiu.Formularios
         
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            //Limpiar Globales para buscar el nuevo login del usuario y refrescar info
+            Globales.MiUsuarioGlobal.IDUsuario = 0;
+            Globales.MiUsuarioGlobal.NombreUsuario = null;
+            Globales.MiUsuarioGlobal.Contrasenia = null;
+            Globales.MiUsuarioGlobal.MiEmpleado.IDEmpleado = 0;
+
+
             if (!string.IsNullOrEmpty(txtNombreUsuario.Text.Trim()) &&
                 !string.IsNullOrEmpty(txtContrasennia.Text.Trim()))
             {
@@ -53,11 +60,9 @@ namespace HotelRiu.Formularios
                     Globales.MiUsuarioGlobal.IDUsuario = IdLoginOK;
 
                     Globales.MiUsuarioGlobal = Globales.MiUsuarioGlobal.ConsultarPorID();
-
-               
+                    Globales.MiformPrincipal = new Formularios.FrmPrincipalMDI();
                     Globales.MiformPrincipal.Show();
                     this.Hide();
-                  
 
                 }
                 else
